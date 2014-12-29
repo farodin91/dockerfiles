@@ -4,7 +4,7 @@ FROM dockerfile/java:latest
 MAINTAINER farodin91
 
 
-RUN \
+RUN cd / \
 	mkdir /data
 
 VOLUME ["/data"]
