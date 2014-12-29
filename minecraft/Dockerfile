@@ -11,7 +11,6 @@ RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/ver
 
 ADD run.sh /data/run
 
-
 EXPOSE 25565
 
 VOLUME ["/data/world"]
