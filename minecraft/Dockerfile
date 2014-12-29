@@ -9,7 +9,7 @@ RUN cd /data
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar 
 RUN echo "eula=${EULA}" > /data/eula.txt
 RUN useradd minecraft
-RUN chown minecraft:minecraft /data
+RUN chown -R minecraft:minecraft /data
 
 
 USER minecraft
