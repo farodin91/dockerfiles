@@ -5,16 +5,9 @@ MAINTAINER farodin91
 ENV VERSION 1.8.1
 ENV EULA false
 
-RUN groupadd -r minecraft && useradd -r -g minecraft minecraft
-
-RUN chown -R minecraft:minecraft /data
-
-USER minecraft
-
 RUN cd /data \
 	mkdir /data/world
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar 
-
 
 ADD run.sh /data/run
 
