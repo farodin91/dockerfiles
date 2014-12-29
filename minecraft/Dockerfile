@@ -6,10 +6,14 @@ MAINTAINER farodin91
 
 RUN cd /data
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/1.8.1/minecraft_server.1.8.1.jar 
+RUN useradd minecraft
+RUN chown minecraft:minecraft /data
+
+USER minecraft
 
 EXPOSE 25565
 
-VOLUME ["/data"]
+VOLUME ["/data/world"]
 
 WORKDIR /data
 
