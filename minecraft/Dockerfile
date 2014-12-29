@@ -11,7 +11,7 @@ RUN cd /data \
 	cd /data
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar 
 RUN useradd minecraft \
-	chown -R minecraft:minecraft /data
+	&& chown -R minecraft:minecraft /data
 
 
 ADD run.sh /data/run
