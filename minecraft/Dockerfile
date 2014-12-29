@@ -7,7 +7,7 @@ ENV EULA false
 
 RUN cd /data
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar 
-RUN "eula=${EULA}" > /data/eula.txt
+RUN echo "eula=${EULA}" > /data/eula.txt
 RUN useradd minecraft
 RUN chown minecraft:minecraft /data
 
