@@ -7,7 +7,8 @@ ENV EULA false
 
 
 RUN cd /data \
-	mkdir world
+	mkdir world \
+	cd /data
 RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar 
 RUN useradd minecraft \
 	chown -R minecraft:minecraft /data
