@@ -9,6 +9,9 @@ RUN wget -O minecraft_server.jar https://s3.amazonaws.com/Minecraft.Download/ver
 RUN useradd minecraft
 RUN chown minecraft:minecraft /data
 
+
+ADD eula.txt /data/eula.txt
+
 USER minecraft
 
 EXPOSE 25565
@@ -17,4 +20,4 @@ VOLUME ["/data/world"]
 
 WORKDIR /data
 
-CMD [ "java -jar minecraft_server.jar"]
+CMD [ "java","-jar minecraft_server.jar"]
