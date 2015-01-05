@@ -15,4 +15,4 @@ ADD run.sh /var/lib/teamspeak/run
 VOLUME ["/data"]
 
 WORKDIR /var/lib/teamspeak
-CMD [ "sh", "/run" ]
+CMD [ "sh", "./run" ]
