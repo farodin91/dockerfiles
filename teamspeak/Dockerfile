@@ -8,10 +8,10 @@ RUN ls /tmp
 RUN mkdir /tmp/ts
 RUN tar -xvf /tmp/teamspeak-server.tar.gz -C /tmp/ts 
 RUN cp -r /tmp/ts/teamspeak3-server_linux-amd64/. /var/lib/teamspeak
-RUN mkdir /data/config
+RUN mkdir /data
 
-ADD run.sh /data/run
+ADD run.sh /var/lib/teamspeak/run
 
-VOLUME ["/data/config"]
+VOLUME ["/data"]
 
-CMD [ "sh", "/data/run" ]
+CMD [ "sh", "/var/lib/teamspeak/run" ]
