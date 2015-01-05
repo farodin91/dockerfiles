@@ -2,6 +2,7 @@
 
 SERVER_DIR=/var/lib/teamspeak
 DATA_DIR=/data
+export LD_LIBRARY_PATH=$SERVER_DIR
 
 if [ ! -e $DATA_DIR/state ]; then
 	mkdir $DATA_DIR/state/
