@@ -1,0 +1,5 @@
+
+
+
+
+bash /ghost-start
