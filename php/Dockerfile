@@ -7,7 +7,7 @@ RUN apt-get update && \
 RUN mkdir /data && mkdir /data/nginx && mkdir /data/config
 
 ADD index.php /data/index.php
-ADD run.sh /php-runc d
+ADD run.sh /php-run
 
 WORKDIR /data
 
