@@ -9,20 +9,25 @@ echo  $NGINX_DIR/$NAME_LINK_NGINX
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 echo "Create NGINX file"
 	touch $NGINX_DIR/$NAME_LINK_NGINX
-#	echo "upstream $NAME_LINK_NGINX{" >> $NGINX_DIR/$NAME_LINK_NGINX
-#    echo "	 server $NAME_LINK_NGINX:$PORT;" >> $NGINX_DIR/$NAME_LINK_NGINX
-#    echo "}\n" >> $NGINX_DIR/$NAME_LINK_NGINX
+	echo "upstream $NAME_LINK_NGINX{" >> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "	 server $NAME_LINK_NGINX:$PORT;" >> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "}\n" >> $NGINX_DIR/$NAME_LINK_NGINX
 
     echo "server { ">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   listen 80;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "   root /data;"
     echo "   location ~ \.php$ {">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_split_path_info ^(.+\.php)(/.+)$;" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_index index.php;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_pass $NAME_LINK_NGINX:9000;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_pass $NAME_LINK_NGINX;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      include fastcgi_params;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_param  PATH_INFO $fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   }">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
 fi
+
+chown -R www-data:www-data /var/share/www
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
 
