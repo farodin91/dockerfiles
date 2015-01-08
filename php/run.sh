@@ -29,7 +29,7 @@ echo "Create NGINX file"
     echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
 fi
 
-chown 777 www-data:www-data $DATA_DIR
+chown 777  $DATA_DIR -R
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
 
