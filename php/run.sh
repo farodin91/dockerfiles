@@ -11,10 +11,9 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     echo "}\n" >> $NGINX_DIR/$NAME_LINK_NGINX
 
     echo "server { ">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   listen 80 default_server;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   listen [::]:80 default_server;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   location / {">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      proxy_pass http://ghost;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "   listen 80;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "   location ~ \.php$ {">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_pass @$NAME_LINK_NGINX; ">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   }">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
 fi
