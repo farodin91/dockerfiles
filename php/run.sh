@@ -53,4 +53,4 @@ else
 fi
 
 echo "RUN php-fpm"
-php5-fpm -F
+su - www-data php5-fpm -F
