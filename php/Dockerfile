@@ -7,12 +7,11 @@ RUN apt-get update && \
 RUN mkdir /data
 
 ADD index.php /data/index.php
-ADD run.sh /php-run
-ADD www.conf /etc/php5/fpm/pool.d/www.conf
+ADD run.sh /php-runc d
 
 WORKDIR /data
 
-VOLUME ["/data","/opt/nginx"]
+VOLUME ["/data","/opt/nginx","/opt/config"]
 
 EXPOSE 9000
 
