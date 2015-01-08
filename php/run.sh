@@ -2,7 +2,7 @@
 
 NGINX_DIR=/opt/nginx
 CONFIG_DIR=/opt/config
-DATA_DIR=/var/share/www
+DATA_DIR=/var/www
 PORT=9000
 
 echo  $NGINX_DIR/$NAME_LINK_NGINX 
@@ -29,7 +29,6 @@ echo "Create NGINX file"
     echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
 fi
 
-chown -R www-data:www-data /var/share
 chown -R www-data:www-data $DATA_DIR
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
@@ -53,4 +52,4 @@ else
 fi
 
 echo "RUN php-fpm"
-su - www-data php5-fpm -F
+php5-fpm -F
