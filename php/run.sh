@@ -23,7 +23,6 @@ echo "Create NGINX file"
 fi
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
-sed 's/;listen = \/var\/run\/php5-fpm.sock/listen = 9000/' -i /etc/php5/fpm/pool.d/www.conf
 
 echo "RUN php-fpm"
 php5-fpm -F

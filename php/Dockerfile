@@ -8,6 +8,7 @@ RUN mkdir /data
 
 ADD index.php /data/index.php
 ADD run.sh /php-run
+ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
 WORKDIR /data
 
