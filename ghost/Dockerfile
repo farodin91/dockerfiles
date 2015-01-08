@@ -6,7 +6,7 @@ ENV GHOST_NAME_LINK_NGINX ghost
 
 VOLUME ["/data", "/ghost-override","/opt/nginx"]
 
-ADD run.sh /ghost-start
+ADD run.sh /ghost-run
 
 WORKDIR /ghost
 
