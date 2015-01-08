@@ -2,7 +2,9 @@
 
 NGINX_DIR=/opt/nginx
 PORT=9000
- 
+
+echo  $NGINX_DIR/$NAME_LINK_NGINX 
+
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 echo "Create NGINX file"
 	touch $NGINX_DIR/$NAME_LINK_NGINX
