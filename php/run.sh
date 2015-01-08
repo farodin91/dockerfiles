@@ -19,4 +19,4 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 fi
 
 
-php5-fpm
+php5-fpm -F
