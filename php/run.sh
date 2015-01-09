@@ -16,15 +16,15 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 
     echo "server { ">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   listen 80;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   root /" >> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "   root /;" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   location ~ \.php$ {">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      root /" >> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      root /;" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_split_path_info ^(.+\.php)(/.+)$;" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_index index.php;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_pass $NAME_LINK_NGINX;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      include fastcgi_params;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_param  PATH_INFO $fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      fastcgi_param PATH_INFO \$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   }">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
 fi
@@ -32,6 +32,10 @@ fi
 chown 777  $DATA_DIR -R
 
 sed 's/;daemonize = yes/daemonize = no/' -i /etc/php5/fpm/php-fpm.conf
+sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' -i /etc/php5/fpm/php.ini
+sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' -i /etc/php5/fpm/php.ini
+sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 9000/' -i /etc/php5/fpm/pool.d/www.conf
+sed 's/;chroot =/chroot = \/var\/www\//' -i /etc/php5/fpm/pool.d/www.conf
 
 if [ -e $CONFIG_DIR/php.ini ]; then
     cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini
