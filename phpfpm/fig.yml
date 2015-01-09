@@ -1,5 +1,5 @@
 phpfpm:
-  build: /opt/git/dockerfiles/php
+  image: farodin91/phpfpm
   environment:
     NAME_LINK_NGINX: phpfpm
   volumes:
