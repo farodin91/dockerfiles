@@ -8,7 +8,7 @@ PORT=9000
 echo  $NGINX_DIR/$NAME_LINK_NGINX 
 
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
-echo "Create NGINX file"
+    echo "Create NGINX file"
 	touch $NGINX_DIR/$NAME_LINK_NGINX
 	echo "upstream $NAME_LINK_NGINX{" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "	 server $NAME_LINK_NGINX:$PORT;" >> $NGINX_DIR/$NAME_LINK_NGINX
@@ -16,9 +16,9 @@ echo "Create NGINX file"
 
     echo "server { ">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   listen 80;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   root $DATA_DIR;"
+    echo "   root /" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "   location ~ \.php$ {">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      root $DATA_DIR;" >> $NGINX_DIR/$NAME_LINK_NGINX
+    echo "      root /" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_split_path_info ^(.+\.php)(/.+)$;" >> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_index index.php;">> $NGINX_DIR/$NAME_LINK_NGINX
     echo "      fastcgi_pass $NAME_LINK_NGINX;">> $NGINX_DIR/$NAME_LINK_NGINX
