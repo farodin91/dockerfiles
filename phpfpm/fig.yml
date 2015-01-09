@@ -1,0 +1,20 @@
+phpfpm:
+  build: /opt/git/dockerfiles/php
+  environment:
+    NAME_LINK_NGINX: phpfpm
+  volumes:
+    - /opt/nginx/sites-enabled:/opt/nginx
+    - /opt/phpfpm/config:/opt/config
+
+nginx:
+  image: dockerfile/nginx:latest
+  volumes:
+    - /opt/nginx/log:/var/log/nginx
+    - /opt/nginx/sites-enabled:/etc/nginx/sites-enabled
+    - /opt/nginx/certs:/etc/nginx/certs
+    - /opt/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - phpfpm:phpfpm
