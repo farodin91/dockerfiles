@@ -40,6 +40,7 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
         sed 's/{{GHOST_PORT}}/'"${GHOST_PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{PORT}}/'"${PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{NGINX_MAX_UPLOAD_SIZE}}/'"${NGINX_MAX_UPLOAD_SIZE}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+    fi
 fi
 if [ ! -e $OVERRIDE/$CONFIG_JS ]; then
     echo "ADD CONFIG"
