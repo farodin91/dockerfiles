@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "START GHOST"
+
 NGINX_DIR="/opt/nginx"
 OVERRIDE="/ghost-override"
 CONFIG_JS="config.js"
@@ -27,6 +28,7 @@ POSTGRES_DB=${POSTGRES_DB:-ghost}
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     if [ "$CONFIGURE_NGINX" = "true" ]; then
         echo "ADD NGINX"
+
         if [ "$USE_SSL" = "true"]; then
             cp $TMP_NGINX_DIR/ghost-ssl $NGINX_DIR/$NAME_LINK_NGINX
         else
@@ -41,16 +43,18 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 fi
 if [ ! -e $OVERRIDE/$CONFIG_JS ]; then
     echo "ADD CONFIG"
+
     cp $TMP_CONFIG_JS $OVERRIDE/$CONFIG_JS
 
     sed 's,{{SERVER_NAME}},'"${SERVER_NAME}"',' -i "$OVERRIDE/$CONFIG_JS"
     sed 's,{{GHOST_HOST}},'"${GHOST_HOST}"',' -i "$OVERRIDE/$CONFIG_JS"
-    sed 's,{{GHOST_PORT}},'"${GHOST_PORT}"',' -i "$OVERRIDE/$CONFIG_JS"
-    sed 's,{{POSTGRES_HOST}},'"${POSTGRES_HOST}"',' -i "$OVERRIDE/$CONFIG_JS"
-    sed 's,{{POSTGRES_USER}},'"${POSTGRES_USER}"',' -i "$OVERRIDE/$CONFIG_JS"
-    sed 's,{{POSTGRES_PW}},'"${POSTGRES_PW}"',' -i "$OVERRIDE/$CONFIG_JS"
-    sed 's,{{POSTGRES_DB}},'"${POSTGRES_DB}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's/{{GHOST_PORT}}/'"${GHOST_PORT}"'/' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's/{{POSTGRES_HOST}}/'"${POSTGRES_HOST}"'/' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's/{{POSTGRES_USER}}/'"${POSTGRES_USER}"'/' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's/{{POSTGRES_PW}}/'"${POSTGRES_PW}"'/' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's/{{POSTGRES_DB}}/'"${POSTGRES_DB}"'/' -i "$OVERRIDE/$CONFIG_JS"
 fi
 
 echo "RUN GHOST"
+
 bash /ghost-start
