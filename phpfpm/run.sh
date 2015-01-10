@@ -15,8 +15,8 @@ INDEX_PHP=${INDEX_PHP:-index.php}
 echo  $NGINX_DIR/$NAME_LINK_NGINX 
 
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
-    if [ $CONFIGURE_NGINX == "true" ]; then
-        if [ $USE_SSL == "true"]; then
+    if [ $CONFIGURE_NGINX = "true" ]; then
+        if [ $USE_SSL = "true"]; then
             cp $TMP_NGINX_DIR/phpfpm-ssl $NGINX_DIR/$NAME_LINK_NGINX
         else
             cp $TMP_NGINX_DIR/phpfpm $NGINX_DIR/$NAME_LINK_NGINX
