@@ -1,37 +1,40 @@
 #!/bin/bash
 
 NGINX_DIR=/opt/nginx
+TMP_NGINX_DIR=/tmp/nginx
 CONFIG_DIR=/opt/config
-DATA_DIR=/var/www
-PORT=9000
+DATA_DIR=${DATA_DIR:-/var/www}
+NAME_LINK_NGINX=${NAME_LINK_NGINX:-phpfpm}
+FASTCGI_PORT=${FASTCGI_PORT:-9000}
+PORT=${PORT:-80}
+CONFIGURE_NGINX=${CONFIGURE_NGINX:-true}
+USE_SSL=${USE_SSL:-false}
+NGINX_MAX_UPLOAD_SIZE=${NGINX_MAX_UPLOAD_SIZE:-20m}
+INDEX_PHP=${INDEX_PHP:-index.php}
 
 echo  $NGINX_DIR/$NAME_LINK_NGINX 
 
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
-    echo "Create NGINX file"
-	touch $NGINX_DIR/$NAME_LINK_NGINX
-	echo "upstream $NAME_LINK_NGINX{" >> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "	 server $NAME_LINK_NGINX:$PORT;" >> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "}\n" >> $NGINX_DIR/$NAME_LINK_NGINX
-
-    echo "server { ">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   listen 80;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   root /;" >> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   location ~ \.php$ {">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      root /;" >> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_split_path_info ^(.+\.php)(/.+)$;" >> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_index index.php;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_pass $NAME_LINK_NGINX;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      include fastcgi_params;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "      fastcgi_param PATH_INFO \$fastcgi_script_name;">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "   }">> $NGINX_DIR/$NAME_LINK_NGINX
-    echo "} ">> $NGINX_DIR/$NAME_LINK_NGINX
+    if [ $CONFIGURE_NGINX == "true" ]; then
+        if [ $USE_SSL == "true"]; then
+            cp $TMP_NGINX_DIR/phpfpm-ssl $NGINX_DIR/$NAME_LINK_NGINX
+        else
+            cp $TMP_NGINX_DIR/phpfpm $NGINX_DIR/$NAME_LINK_NGINX
+        fi
+        sed 's/{{NAME_LINK_NGINX}}/'"${NAME_LINK_NGINX}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+        sed 's/{{FASTCGI_PORT}}/'"${FASTCGI_PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+        sed 's/{{PORT}}/'"${PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+        sed 's/{{INDEX_PHP}}/'"${INDEX_PHP}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+        sed 's/{{NGINX_MAX_UPLOAD_SIZE}}/'"${NGINX_MAX_UPLOAD_SIZE}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+    fi
 fi
 
 chown 777  $DATA_DIR -R
 
-sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf && sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini  && sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 9000/g' -i /etc/php5/fpm/pool.d/www.conf && sed 's/;chroot =/chroot = \/var\/www\//g' -i /etc/php5/fpm/pool.d/www.conf
+sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
+&& sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini \
+&& sed 's/listen = \/var\/run\/php5-fpm.sock/listen = $FASTCGI_PORT/g' -i /etc/php5/fpm/pool.d/www.conf \
+&& sed 's,;chroot =,chroot = $DATA_DIR,g' -i /etc/php5/fpm/pool.d/www.conf
 
 if [ -e $CONFIG_DIR/php.ini ]; then
     cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini

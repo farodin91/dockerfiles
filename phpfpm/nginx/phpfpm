@@ -1,0 +1,29 @@
+upstream {{NAME_LINK_NGINX}}{
+	server {{NAME_LINK_NGINX}}:{{FASTCGI_PORT}};
+}
+server { 
+    listen 0.0.0.0:80 default_server;
+    listen [::]:80 default_server;
+    server_name {{SERVER_NAME}};
+    root /;
+
+    client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
+
+
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+
+    location = / {
+        index {{INDEX_PHP}};
+    }
+
+    location ~ \.php$ {
+        root /;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_index {{INDEX_PHP}};
+        fastcgi_pass {{NAME_LINK_NGINX}};
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        fastcgi_param PATH_INFO \$fastcgi_script_name;
+    }
+}

@@ -1,0 +1,18 @@
+upstream {{NAME_LINK_NGINX}}{
+	server {{NAME_LINK_NGINX}}:{{GHOST_PORT}};
+}
+server { 
+    listen 0.0.0.0:80 default_server;
+    listen [::]:80 default_server;
+    server_name {{SERVER_NAME}};
+
+    client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
+
+
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+
+    location / {
+        proxy_pass http://{{NAME_LINK_NGINX}};
+    }
+}

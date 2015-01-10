@@ -1,0 +1,30 @@
+upstream {{NAME_LINK_NGINX}}{
+	server {{NAME_LINK_NGINX}}:{{GHOST_PORT}};
+}
+
+server { 
+    listen 0.0.0.0:80 default_server;
+    listen [::]:80 default_server;
+    server_name {{SERVER_NAME}};
+    server_tokens off; ## Don't show the nginx version number, a security best practice
+    return 301 https://$host:{{PORT}}$request_uri;
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+}
+
+server{
+    listen 0.0.0.0:443 ssl spdy;
+    listen [::]:443 ssl spdy default_server;
+    server_name {{SERVER_NAME}};
+    server_tokens off;
+
+    client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
+
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+
+    location / {
+        gzip off;
+        proxy_pass http://{{NAME_LINK_NGINX}};
+    }
+}

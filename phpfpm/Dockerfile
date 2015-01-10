@@ -8,6 +8,7 @@ RUN mkdir /data && mkdir /data/nginx && mkdir /data/config && mkdir /var/www
 
 ADD index.php /var/www/index.php
 ADD run.sh /php-run
+COPY nginx/ /tmp/nginx/
 
 WORKDIR /var/www
 
