@@ -1,0 +1,32 @@
+postgres:
+  image: postgres
+  volumes:
+    - /opt/postgres/main:/var/lib/postgresql
+    - /opt/postgres/data:/var/lib/postgresql/data 
+  user: postgres
+  environment:
+    POSTGRES_PASSWORD: mysecretpassword
+
+ghost:
+  image: .
+  environment:
+    NAME_LINK_NGINX: ghost
+  volumes:
+    - /opt/nginx/sites-enabled:/opt/nginx
+    - /opt/ghost/data:/data
+    - /opt/ghost/ghost-override:/ghost-override
+  links:
+    - postgres:postgres
+
+nginx:
+  image: dockerfile/nginx:latest
+  volumes:
+    - /opt/nginx/log:/var/log/nginx
+    - /opt/nginx/sites-enabled:/etc/nginx/sites-enabled
+    - /opt/nginx/certs:/etc/nginx/certs
+    - /opt/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - ghost:ghost

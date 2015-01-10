@@ -1,13 +1,24 @@
 #!/bin/bash
 
-NGINX_DIR=/opt/nginx
-NAME_LINK_NGINX=${NAME_LINK_NGINX:-ghost}
-GHOST_PORT=${GHOST_PORT:-9000}
-PORT=${PORT:-80}
+NGINX_DIR="/opt/nginx"
+OVERRIDE="/ghost-override"
+CONFIG_JS="config.js"
+TMP_NGINX_DIR="/tmp/nginx"
+TMP_CONFIG_JS="/tmp/config.js"
+
 CONFIGURE_NGINX=${CONFIGURE_NGINX:-true}
 USE_SSL=${USE_SSL:-false}
+NAME_LINK_NGINX=${NAME_LINK_NGINX:-ghost}
 NGINX_MAX_UPLOAD_SIZE=${NGINX_MAX_UPLOAD_SIZE:-20m}
+PORT=${PORT:-80}
+
 SERVER_NAME=${SERVER_NAME:-localhost}
+GHOST_HOST=${GHOST_HOST:-127.0.0.1}
+GHOST_PORT=${GHOST_PORT:-9000}
+POSTGRES_HOST=${POSTGRES_HOST:-postgres}
+POSTGRES_USER=${POSTGRES_USER:-ghost}
+POSTGRES_PW=${POSTGRES_PW:-pw}
+POSTGRES_DB=${POSTGRES_DB:-ghost}
 
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     if [ "$CONFIGURE_NGINX" = "true" ]; then
@@ -22,6 +33,17 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
         sed 's/{{GHOST_PORT}}/'"${GHOST_PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{PORT}}/'"${PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{NGINX_MAX_UPLOAD_SIZE}}/'"${NGINX_MAX_UPLOAD_SIZE}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+fi
+if [ ! -e $OVERRIDE/$CONFIG_JS ]; then
+    cp $TMP_CONFIG_JS $OVERRIDE/$CONFIG_JS
+    
+    sed 's,{{SERVER_NAME}},'"${SERVER_NAME}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{GHOST_HOST}},'"${GHOST_HOST}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{GHOST_PORT}},'"${GHOST_PORT}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{POSTGRES_HOST}},'"${POSTGRES_HOST}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{POSTGRES_USER}},'"${POSTGRES_USER}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{POSTGRES_PW}},'"${POSTGRES_PW}"',' -i "$OVERRIDE/$CONFIG_JS"
+    sed 's,{{POSTGRES_DB}},'"${POSTGRES_DB}"',' -i "$OVERRIDE/$CONFIG_JS"
 fi
 
 
