@@ -35,8 +35,8 @@ chown 777  $DATA_DIR -R
 
 sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
 && sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini \
-&& sed 's/listen = \/var\/run\/php5-fpm.sock/listen = $FASTCGI_PORT/g' -i /etc/php5/fpm/pool.d/www.conf \
-&& sed 's,;chroot =,chroot = $DATA_DIR,g' -i /etc/php5/fpm/pool.d/www.conf
+&& sed 's/listen = \/var\/run\/php5-fpm.sock/listen = ${FASTCGI_PORT}/g' -i /etc/php5/fpm/pool.d/www.conf \
+&& sed 's,;chroot =,chroot = ${DATA_DIR},g' -i /etc/php5/fpm/pool.d/www.conf
 
 if [ -e $CONFIG_DIR/php.ini ]; then
     cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini
