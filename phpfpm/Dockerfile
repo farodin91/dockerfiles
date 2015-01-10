@@ -16,4 +16,4 @@ VOLUME ["/var/www","/opt/nginx","/opt/config"]
 
 EXPOSE 9000
 
-CMD [ "sh", "/php-run" ]
+CMD [ "bash", "/php-run" ]

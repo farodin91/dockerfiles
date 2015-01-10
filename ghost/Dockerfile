@@ -11,6 +11,6 @@ COPY nginx/ /tmp/nginx/
 
 WORKDIR /ghost
 
-CMD [ "sh", "/ghost-run" ]
+CMD [ "bash", "/ghost-run" ]
 
 EXPOSE 2368
