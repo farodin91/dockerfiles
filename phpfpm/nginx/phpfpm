@@ -23,7 +23,7 @@ server {
         fastcgi_index {{INDEX_PHP}};
         fastcgi_pass {{NAME_LINK_NGINX}};
         include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-        fastcgi_param PATH_INFO \$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_script_name;
     }
 }
