@@ -1,0 +1,641 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"end",
+				"end{itemize}	ha34.tex"
+			],
+			[
+				"Cal",
+				"CalA	ha32.tex"
+			],
+			[
+				"neg",
+				"negl	ha32.tex"
+			],
+			[
+				"Ca",
+				"CalA	ha32.tex"
+			],
+			[
+				"new",
+				"newcommand{cmd}{def}	latex-document"
+			],
+			[
+				"mp",
+				"mpz_init2"
+			],
+			[
+				"mpz",
+				"mpz_init2"
+			],
+			[
+				"math",
+				"mathcal{text}	latex-document"
+			],
+			[
+				"R",
+				"Rightarrow	latex-mathsymbols"
+			],
+			[
+				"usepack",
+				"usepackage{package}	latex-document"
+			],
+			[
+				"chead",
+				"chead{text}	scrpage2"
+			],
+			[
+				"rfo",
+				"rofoot{text}	scrpage2"
+			],
+			[
+				"sect",
+				"section*{title}	latex-document"
+			],
+			[
+				"texti",
+				"textit{text}	latex-document"
+			],
+			[
+				"Lef",
+				"Leftrightarrow	latex-mathsymbols"
+			],
+			[
+				"eq",
+				"equiv	latex-mathsymbols"
+			],
+			[
+				"mod",
+				"mod{value}	amsmath"
+			],
+			[
+				"mo",
+				"mod{value}	amsmath"
+			],
+			[
+				"under",
+				"underbrace{text}	latex-document"
+			],
+			[
+				"clear",
+				"clearpage	latex-document"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"pre",
+				"precomp_values"
+			],
+			[
+				"print",
+				"printf	printf …"
+			],
+			[
+				"test",
+				"test_res"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"pritn",
+				"printf	printf …"
+			],
+			[
+				"textt",
+				"texttt{text}	latex-document"
+			],
+			[
+				"usa",
+				"usepackage{package}	latex-document"
+			],
+			[
+				"begin",
+				"begin{align*}	amsmath"
+			],
+			[
+				"subse",
+				"subsection{title}	latex-document"
+			],
+			[
+				"ref",
+				"ref{key}	latex-document"
+			],
+			[
+				"ac",
+				"activityRequest"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "owncloud/Dockerfile",
+			"settings":
+			{
+				"buffer_size": 64,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "phpfpm/Dockerfile",
+			"settings":
+			{
+				"buffer_size": 428,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "samba/Dockerfile",
+			"settings":
+			{
+				"buffer_size": 96,
+				"line_ending": "Windows",
+				"name": "Dockerfile"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 114.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Jan/git/dockerfiles",
+		"/C/Users/Jan/git/dockerfiles/phpfpm"
+	],
+	"file_history":
+	[
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/ha3/ha32.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/ha3/ha34.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/htemp.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/ha2/h92.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h10/h104.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h10/h102.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/IKV/Project_2/p2.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/IKV/Project 2/p2.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h7/h72.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h9/h92.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/IKV/Project 1/test/exp108012211238.c",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/IKV/Project 2/test/mpa_algs.c",
+		"/C/Users/Jan/Dropbox/ITS/Vertiefungsfächer/Implementierung kryptografischer Verfahren/Implementierung krypto. Verfahren I_timo/Projekt_2/prj_mpa_lsg.c",
+		"/C/Users/Jan/Dropbox/ITS/Vertiefungsfächer/Implementierung kryptografischer Verfahren/Implementierung krypto. Verfahren I_timo/Projekt_2/schoolbook_easy.c",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h8/h82.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h8/h81.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Kryptograhie/h8/h83.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Computerarchitektur/p1.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Computerarchitektur/temp.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Xml & Websicherheit/A6/h6.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Xml & Websicherheit/h7/h7.tex",
+		"/C/Users/Jan/Dropbox/Uni/Semester-5/Xml & Websicherheit/temp.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/IKV/Project 2/project_multi_precision_ws14.pdf",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/h6.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Kryptograhie/h72.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/h5.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Kryptograhie/h6/h5.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Kryptograhie/h62.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/IKV/p1.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/IKV/test/exp108012211238.c",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/h4.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Kryptograhie/h51.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Kryptograhie/h52.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/IKV/test/exp.c",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/test.html",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/h3.tex",
+		"/home/farodin/Dropbox/Uni/Semester-5/Xml & Websicherheit/h2.tex",
+		"/home/farodin/OneDrive/uni/Semester-5/Kryptograhie/h3.3.tex",
+		"/home/farodin/OneDrive/uni/Semester-5/Kryptograhie/h3.1.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/introduction.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/conclusion.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/execution.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/review.tex",
+		"/home/farodin/Desktop/h3.1.tex",
+		"/home/farodin/Desktop/h3.2.tex",
+		"/home/farodin/Desktop/h2.3.tex",
+		"/home/farodin/.config/sublime-text-3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/home/farodin/.config/sublime-text-3/Packages/LaTeXing/LaTeX.sublime-build",
+		"/home/farodin/.config/sublime-text-3/Packages/User/LaTeXing.sublime-settings",
+		"/home/farodin/Desktop/vorlagen/seminar_vorlage_deutsch.tex",
+		"/home/farodin/Desktop/vorlagen/rublogo.pdf",
+		"/home/farodin/Desktop/vorlagen/rublabel.jpg",
+		"/home/farodin/Desktop/vorlagen/hgilogo.pdf",
+		"/home/farodin/Desktop/vorlagen/seminar_vorlage_english.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/settings.tex",
+		"/home/farodin/git/Firefox-OS-Mail-Review/testapp/js/app.js",
+		"/home/farodin/Downloads/Tekkit lite Rebuild /Tekkit mod list 1.7.10",
+		"/home/farodin/git/Firefox-OS-Mail-Review/README.md",
+		"/home/farodin/git/Firefox-OS-Mail-Review/test2/manifest.webapp",
+		"/home/farodin/git/Firefox-OS-Mail-Review/testapp/manifest.webapp",
+		"/home/farodin/git/Firefox-OS-Mail-Review/testapp/index.html",
+		"/home/farodin/git/Firefox-OS-Mail-Review/gaia/apps/email/js/ext/mailapi.js",
+		"/home/farodin/git/Firefox-OS-Mail-Review/gaia/apps/email/js/ext/worker-support/cronsync-main.js"
+	],
+	"find":
+	{
+		"height": 21.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getVillages",
+			"villages",
+			"modelDataService'",
+			"getSelectedVillage",
+			"getSelectedVillage() {",
+			"getSelectedVillage",
+			"modelDataService",
+			"upgradeb",
+			"Inhalten",
+			"BtoC",
+			"]\n",
+			" S, ",
+			"M\nTime per exponentiation: ",
+			" microseconds\n\nSliding window algorithm, 1024 bits, ",
+			" microseconds\n\nSliding window algorithm, 160 bits, ",
+			"\nOperations per exponentiation: ",
+			" S, ",
+			" M\nTime per exponentiation: ",
+			"Tabelle",
+			"45",
+			" ,",
+			"&\\",
+			"a",
+			"analyse",
+			"to use",
+			"setted",
+			"Github",
+			"chap5",
+			"\\chapter{Chapter 1}",
+			"handle",
+			"ah_handle",
+			"makeData"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" & "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "owncloud/Dockerfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 64,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dockerfile Syntax Highlighting/Dockerfile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "phpfpm/Dockerfile",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								387,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Dockerfile Syntax Highlighting/Dockerfile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "samba/Dockerfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 96,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Dockerfile",
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Dockerfile Syntax Highlighting/Dockerfile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 170.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "dockerfiles.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
