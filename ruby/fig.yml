@@ -1,0 +1,20 @@
+ruby:
+  build: .
+  environment:
+    NAME_LINK_NGINX: ruby
+  volumes:
+    - /opt/nginx/sites-enabled:/opt/nginx
+    - /opt/ruby/config:/opt/config
+
+nginx:
+  image: dockerfile/nginx:latest
+  volumes:
+    - /opt/nginx/log:/var/log/nginx
+    - /opt/nginx/sites-enabled:/etc/nginx/sites-enabled
+    - /opt/nginx/certs:/etc/nginx/certs
+    - /opt/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - ruby:ruby
