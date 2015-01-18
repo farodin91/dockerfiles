@@ -14,7 +14,7 @@ server {
     error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
 
     location = / {
-        index {{INDEX_PHP}};
+        try_files $uri $uri/ /{{INDEX_PHP}};
     }
 
     location ~ \.php$ {

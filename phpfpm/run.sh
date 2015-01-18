@@ -1,8 +1,13 @@
 #!/bin/bash
 
-NGINX_DIR=/opt/nginx
-TMP_NGINX_DIR=/tmp/nginx
-CONFIG_DIR=/opt/config
+echo "START PHPFPM"
+
+NGINX_DIR="/opt/nginx"
+TMP_NGINX_DIR="/tmp/nginx"
+CONFIG_DIR="/opt/config"
+
+echo "SETUP ENV"
+
 DATA_DIR=${DATA_DIR:-/var/www}
 NAME_LINK_NGINX=${NAME_LINK_NGINX:-phpfpm}
 FASTCGI_PORT=${FASTCGI_PORT:-9000}
@@ -13,10 +18,11 @@ NGINX_MAX_UPLOAD_SIZE=${NGINX_MAX_UPLOAD_SIZE:-20m}
 INDEX_PHP=${INDEX_PHP:-index.php}
 SERVER_NAME=${SERVER_NAME:-localhost}
 
-echo  $NGINX_DIR/$NAME_LINK_NGINX 
 
 if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     if [ "$CONFIGURE_NGINX" = "true" ]; then
+        echo "ADD NGINX"
+
         if [ "$USE_SSL" = "true"]; then
             cp $TMP_NGINX_DIR/phpfpm-ssl $NGINX_DIR/$NAME_LINK_NGINX
         else
@@ -32,6 +38,8 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
 fi
 
 chown 777  $DATA_DIR -R
+
+echo "WRITE CONFIG"
 
 sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
 && sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini \
@@ -56,5 +64,5 @@ else
     cp /etc/php5/fpm/pool.d/www.conf $CONFIG_DIR/www.conf
 fi
 
-echo "RUN php-fpm"
+echo "RUN PHPFPM"
 php5-fpm -F

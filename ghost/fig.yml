@@ -8,7 +8,7 @@ postgres:
     POSTGRES_PASSWORD: mysecretpassword
 
 ghost:
-  image: .
+  build: .
   environment:
     NAME_LINK_NGINX: ghost
   volumes:
