@@ -16,7 +16,6 @@ owncloud:
     - /opt/owncloud/data:/var/www
     - /opt/owncloud/config:/opt/owncloud
     - /opt/owncloud/php:/opt/config
-
   links:
     - postgres:postgres
 
