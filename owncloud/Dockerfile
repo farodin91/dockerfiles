@@ -29,6 +29,7 @@ RUN cp -f -r /tmp/owncloud/* /var/www
 ADD run.sh /owncloud-run
 COPY nginx/ /tmp/nginx/
 ADD autoconfig.php /tmp/autoconfig.php 
+ADD test.php /var/www/test.php
 
 WORKDIR /var/www
 
