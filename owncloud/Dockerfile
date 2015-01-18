@@ -1,11 +1,12 @@
-FROM farodin91/phpfpm
+FROM dockerfile/ubuntu
 
+ENV NAME_LINK_NGINX owncloud 
 ENV DATA_DIR /var/www
-
 ENV VERSION 7.0.2
 
 RUN apt-get update && \
-	apt-get install -y sharutils libmcrypt4 \
+	apt-get install -y php5-fpm php5-curl php5-gd php5-mcrypt \ 
+	php5-mysql php5-pgsql php5-sqlite sharutils libmcrypt4 \
 	ffmpegthumbnailer smbclient php-xml-parser php5-intl \
 	php5-curl liboauth-php libphp-pclzip libphp-phpmailer php-file \
 	php-aws-sdk php-crypt-blowfish php-doctrine-common php-dompdf php-dropbox \
@@ -16,9 +17,10 @@ RUN apt-get update && \
 	php5-common php5-imagick php-net-ftp php5-gmp php5-json php5-ldap \
 	php5-oauth php5-readline php5-tidy php5-xsl sdop zend-framework \
 	zend-framework-bin libzend-framework-php &&\
-	apt-get clean
+	apt-get clean && \
+	mkdir /data && mkdir /data/nginx && mkdir /data/config && mkdir /var/www
 
-RUN cd /tmp && rm -f /tmp/nginx/phpfpm && rm -f /tmp/nginx/phpfpm-ssl && rm -f /phpfpm-run && rm -f "/var/www/index.php"  && \
+RUN cd /tmp && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	tar -xjf owncloud-${VERSION}.tar.bz2
 
