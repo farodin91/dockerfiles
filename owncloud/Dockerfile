@@ -20,14 +20,14 @@ RUN apt-get update && \
 
 RUN cd /tmp && rm /tmp/nginx/phpfpm && rm /tmp/nginx/phpfpm-ssl && rm /phpfpm-run && rm /var/www/index.php  && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
-	tar -xjf owncloud-${VERSION}.tar.bz2 && \
-	cp -r /tmp/owncloud/ /var/www  
+	tar -xjf owncloud-${VERSION}.tar.bz2
+RUN	cp -r /tmp/owncloud/ /var/www  
 
 ADD run.sh /owncloud-run
 COPY nginx/ /tmp/nginx/
 ADD autoconfig.php /tmp/autoconfig.php 
 
-WORKDIR /var/www/owncloud
+WORKDIR /var/www
 
 VOLUME ["/opt/nginx","/opt/config"]
 
