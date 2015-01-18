@@ -1,5 +1,6 @@
 FROM farodin91/phpfpm
 
+ENV DATA_DIR /var/www
 
 ENV VERSION 7.0.1
 
@@ -21,7 +22,7 @@ RUN cd /tmp && rm /tmp/nginx/phpfpm && rm /tmp/nginx/phpfpm-ssl && rm /phpfpm-ru
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	tar -xjf owncloud-${VERSION}.tar.bz2 && \
 	cp -r /tmp/owncloud /var/www/&& \
-	chown 777  $DATA_DIR -R 
+	chown 777  ${DATA_DIR} -R 
 
 ADD run.sh /owncloud-run
 COPY nginx/ /tmp/nginx/
