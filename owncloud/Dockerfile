@@ -15,7 +15,7 @@ RUN apt-get update && \
 	php5-common php5-imagick php-net-ftp php5-gmp php5-json php5-ldap \
 	php5-oauth php5-readline php5-tidy php5-xsl sdop zend-framework \
 	zend-framework-bin libzend-framework-php &&\
-	apt-get clean &&\
+	apt-get clean
 
 RUN cd /tmp && rmdir -f /tmp/nginx  && \
 	wget https://owncloud.org/owncloud.asc && \
