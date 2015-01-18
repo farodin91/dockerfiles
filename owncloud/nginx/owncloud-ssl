@@ -1,0 +1,42 @@
+upstream {{NAME_LINK_NGINX}}{
+	server {{NAME_LINK_NGINX}}:{{FASTCGI_PORT}};
+}
+
+server { 
+    listen 0.0.0.0:80 default_server;
+    listen [::]:80 default_server;
+    server_name {{SERVER_NAME}};
+    server_tokens off; ## Don't show the nginx version number, a security best practice
+    return 301 https://$host:{{PORT}}$request_uri;
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+}
+
+server{
+    listen 0.0.0.0:443 ssl spdy;
+    listen [::]:443 ssl spdy default_server;
+    server_name {{SERVER_NAME}};
+    server_tokens off;
+    root /;
+
+    client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
+
+
+    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
+    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+
+    location = / {
+        try_files $uri $uri/ /index.php;
+    }
+
+    location ~ \.php$ {
+        gzip off;
+        root /;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_index {{INDEX_PHP}};
+        fastcgi_pass index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_script_name;
+    }
+}
