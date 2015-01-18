@@ -24,7 +24,7 @@ RUN cd /tmp && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	tar -xjf owncloud-${VERSION}.tar.bz2
 
-RUN cp -f -r /tmp/owncloud/* /var/www  
+RUN cp -f -r /tmp/owncloud/* /var/www/ 
 
 ADD run.sh /owncloud-run
 COPY nginx/ /tmp/nginx/
