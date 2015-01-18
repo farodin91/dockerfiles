@@ -7,6 +7,7 @@ TMP_NGINX_DIR="/tmp/nginx"
 CONFIG_DIR="/opt/config"
 
 echo "SETUP ENV"
+
 DATA_DIR=${DATA_DIR:-/var/www}
 NAME_LINK_NGINX=${NAME_LINK_NGINX:-owncloud}
 FASTCGI_PORT=${FASTCGI_PORT:-9000}
@@ -45,18 +46,21 @@ sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
 && sed 's,;chroot =,chroot = '"${DATA_DIR}"',g' -i /etc/php5/fpm/pool.d/www.conf
 
 if [ -e $CONFIG_DIR/php.ini ]; then
+	echo "INIT PHP.INI"
     cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini
 else
     cp /etc/php5/fpm/php.ini $CONFIG_DIR/php.ini
 fi
 
 if [ -e $CONFIG_DIR/php-fpm.conf ]; then
+	echo "INIT PHP-FPM.CONF"
     cp $CONFIG_DIR/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 else
     cp /etc/php5/fpm/php-fpm.conf $CONFIG_DIR/php-fpm.conf
 fi
 
 if [ -e $CONFIG_DIR/www.conf ]; then
+	echo "INIT WWW.CONF"
     cp $CONFIG_DIR/www.conf /etc/php5/fpm/pool.d/www.conf
 else
     cp /etc/php5/fpm/pool.d/www.conf $CONFIG_DIR/www.conf
