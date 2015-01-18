@@ -1,0 +1,34 @@
+postgres:
+  image: postgres
+  volumes:
+    - /opt/postgres/main:/var/lib/postgresql
+    - /opt/postgres/data:/var/lib/postgresql/data 
+  user: postgres
+  environment:
+    POSTGRES_PASSWORD: mysecretpassword
+
+owncloud:
+  build: .
+  environment:
+    NAME_LINK_NGINX: owncloud
+  volumes:
+    - /opt/nginx/sites-enabled:/opt/nginx
+    - /opt/owncloud/data:/var/www
+    - /opt/owncloud/config:/opt/owncloud
+    - /opt/owncloud/php:/opt/config
+
+  links:
+    - postgres:postgres
+
+nginx:
+  image: dockerfile/nginx:latest
+  volumes:
+    - /opt/nginx/log:/var/log/nginx
+    - /opt/nginx/sites-enabled:/etc/nginx/sites-enabled
+    - /opt/nginx/certs:/etc/nginx/certs
+    - /opt/nginx/conf.d:/etc/nginx/conf.d
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - owncloud:owncloud
