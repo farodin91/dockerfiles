@@ -18,10 +18,7 @@ RUN apt-get update && \
 	apt-get clean
 
 RUN cd /tmp && rm /tmp/nginx/phpfpm && rm /tmp/nginx/phpfpm-ssl && rm /phpfpm-run  && \
-	wget https://owncloud.org/owncloud.asc && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
-	gpg --import /tmp/owncloud.asc && \
-	gpg owncloud-${VERSION}.tar.bz2 && \
 	tar -xjf owncloud-${VERSION}.tar.bz2 && \
 	cp -r /tmp/owncloud /var/www/&& \
 	chown 777  $DATA_DIR -R 
