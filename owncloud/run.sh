@@ -22,9 +22,9 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
         echo "ADD NGINX"
 
         if [ "$USE_SSL" = "true"]; then
-            cp $TMP_NGINX_DIR/phpfpm-ssl $NGINX_DIR/$NAME_LINK_NGINX
+            cp $TMP_NGINX_DIR/ownloud-ssl $NGINX_DIR/$NAME_LINK_NGINX
         else
-            cp $TMP_NGINX_DIR/phpfpm $NGINX_DIR/$NAME_LINK_NGINX
+            cp $TMP_NGINX_DIR/ownloud $NGINX_DIR/$NAME_LINK_NGINX
         fi
         sed 's/{{SERVER_NAME}}/'"${SERVER_NAME}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{NAME_LINK_NGINX}}/'"${NAME_LINK_NGINX}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
