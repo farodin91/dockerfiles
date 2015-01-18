@@ -13,9 +13,8 @@ owncloud:
     NAME_LINK_NGINX: owncloud
   volumes:
     - /opt/nginx/sites-enabled:/opt/nginx
-    - /opt/owncloud/data:/var/www
     - /opt/owncloud/config:/opt/owncloud
-    - /opt/owncloud/php:/opt/config
+    - /opt/owncloud/php:/opt/configls
   links:
     - postgres:postgres
 
