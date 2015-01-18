@@ -2,7 +2,7 @@ FROM farodin91/phpfpm
 
 ENV DATA_DIR /var/www
 
-ENV VERSION 7.0.1
+ENV VERSION 7.0.2
 
 RUN apt-get update && \
 	apt-get install -y sharutils libmcrypt4 \
@@ -21,14 +21,13 @@ RUN apt-get update && \
 RUN cd /tmp && rm /tmp/nginx/phpfpm && rm /tmp/nginx/phpfpm-ssl && rm /phpfpm-run && rm /var/www/index.php  && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	tar -xjf owncloud-${VERSION}.tar.bz2 && \
-	cp -r /tmp/owncloud/ /var/www && \
-	chown 777  ${DATA_DIR} -R 
+	cp -r /tmp/owncloud/ /var/www  
 
 ADD run.sh /owncloud-run
 COPY nginx/ /tmp/nginx/
 ADD autoconfig.php /tmp/autoconfig.php 
 
-WORKDIR /var/www
+WORKDIR /var/www/owncloud
 
 VOLUME ["/opt/nginx","/opt/config"]
 

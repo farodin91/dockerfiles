@@ -35,6 +35,8 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     fi
 fi
 
+chown 777  ${DATA_DIR} -R
+
 echo "WRITE CONFIG"
 
 sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
