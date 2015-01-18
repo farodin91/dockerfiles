@@ -7,7 +7,7 @@ RUN apt-get update && \
 RUN mkdir /data && mkdir /data/nginx && mkdir /data/config && mkdir /var/www
 
 ADD index.php /var/www/index.php
-ADD run.sh /php-run
+ADD run.sh /phpfpm-run
 COPY nginx/ /tmp/nginx/
 
 WORKDIR /var/www
@@ -16,4 +16,4 @@ VOLUME ["/var/www","/opt/nginx","/opt/config"]
 
 EXPOSE 9000
 
-CMD [ "bash", "/php-run" ]
+CMD [ "bash", "/phpfpm-run" ]
