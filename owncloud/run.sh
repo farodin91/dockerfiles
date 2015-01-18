@@ -46,23 +46,23 @@ sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
 && sed 's,;chroot =,chroot = '"${DATA_DIR}"',g' -i /etc/php5/fpm/pool.d/www.conf
 
 if [ -e $CONFIG_DIR/php.ini ]; then
-	echo "INIT PHP.INI"
     cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini
 else
+	echo "INIT PHP.INI"
     cp /etc/php5/fpm/php.ini $CONFIG_DIR/php.ini
 fi
 
 if [ -e $CONFIG_DIR/php-fpm.conf ]; then
-	echo "INIT PHP-FPM.CONF"
     cp $CONFIG_DIR/php-fpm.conf /etc/php5/fpm/php-fpm.conf
 else
+	echo "INIT PHP-FPM.CONF"
     cp /etc/php5/fpm/php-fpm.conf $CONFIG_DIR/php-fpm.conf
 fi
 
 if [ -e $CONFIG_DIR/www.conf ]; then
-	echo "INIT WWW.CONF"
     cp $CONFIG_DIR/www.conf /etc/php5/fpm/pool.d/www.conf
 else
+	echo "INIT WWW.CONF"
     cp /etc/php5/fpm/pool.d/www.conf $CONFIG_DIR/www.conf
 fi
 
