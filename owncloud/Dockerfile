@@ -17,7 +17,7 @@ RUN apt-get update && \
 	zend-framework-bin libzend-framework-php &&\
 	apt-get clean
 
-RUN cd /tmp && rmdir -f /tmp/nginx  && \
+RUN cd /tmp && rm /tmp/nginx/phpfpm && rm /tmp/nginx/phpfpm-ssl && rm /phpfpm-run  && \
 	wget https://owncloud.org/owncloud.asc && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	gpg --import owncloud.asc && \
