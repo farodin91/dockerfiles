@@ -33,7 +33,8 @@ chown -R www-data:www-data /var/www/owncloud/*
 
 echo "WRITE CONFIG"
 
-sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 9000/g' -i /etc/php5/fpm/pool.d/www.conf 
+sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 9000/g' -i /etc/php5/fpm/pool.d/www.conf \
+&& sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini 
 
 echo "SETUP LOG"
 
