@@ -35,7 +35,7 @@ fi
 echo "WRITE CONFIG"
 
 if [ ! -e $CONFIG ]; then
-    cp $TMP_NGINX_DIR/autoconfig.php $AUTOCONFIG
+    cp /tmp/autoconfig.php $AUTOCONFIG
     sed 's/{{POSTGRES_DB}}/'"${POSTGRES_DB}"'/' -i $AUTOCONFIG
     sed 's/{{POSTGRES_USER}}/'"${POSTGRES_USER}"'/' -i $AUTOCONFIG
     sed 's/{{POSTGRES_PW}}/'"${POSTGRES_PW}"'/' -i $AUTOCONFIG
