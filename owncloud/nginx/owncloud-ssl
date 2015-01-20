@@ -42,7 +42,7 @@ http {
     gzip_disable "msie6";
 
     upstream owncloud{
-        server 127.0.0.1:9000;
+        server unix:/var/run/php5-fpm.sock;
     }
 
     server {

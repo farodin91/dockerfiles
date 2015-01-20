@@ -33,9 +33,6 @@ chown -R www-data:www-data /var/www/owncloud/*
 
 echo "WRITE CONFIG"
 
-sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 9000/g' -i /etc/php5/fpm/pool.d/www.conf \
-&& sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini 
-
 echo "SETUP LOG"
 
 touch /var/log/nginx/access.log
@@ -47,5 +44,5 @@ tail -F /var/log/nginx/*.log /var/log/cron/owncloud.log &
 echo "RUN OWNCLOUD"
 
 /usr/sbin/cron -f &
+/etc/init.d/php5-fpm start
 /etc/init.d/nginx start
-php5-fpm -F
