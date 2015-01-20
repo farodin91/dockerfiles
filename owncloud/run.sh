@@ -24,9 +24,9 @@ if [ ! -e $EDIT_NGINX_CONF ]; then
     fi
     sed 's/{{SERVER_NAME}}/'"${SERVER_NAME}"'/' -i $NGINX_CONF
     sed 's/{{NGINX_MAX_UPLOAD_SIZE}}/'"${NGINX_MAX_UPLOAD_SIZE}"'/' -i $NGINX_CONF
-    cp $EDIT_NGINX_CONF $NGINX_CONF
-else
     cp $NGINX_CONF $EDIT_NGINX_CONF
+else
+    cp $EDIT_NGINX_CONF $NGINX_CONF
 fi
 
 chown -R www-data:www-data /var/www/owncloud/*
