@@ -1,11 +1,11 @@
 upstream {{NAME_LINK_NGINX}}{
-	server {{NAME_LINK_NGINX}}:{{FASTCGI_PORT}};
+    server unix:/var/run/php5-fpm.sock;
 }
 server { 
     listen 0.0.0.0:80 default_server;
     listen [::]:80 default_server;
     server_name {{SERVER_NAME}};
-    root /;
+    root {{ROOT}}/;
 
     client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
 
@@ -18,10 +18,10 @@ server {
     }
 
     location ~ \.php$ {
-        root /;
+        root {{ROOT}}/;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_index index.php;
-        fastcgi_pass {{NAME_LINK_NGINX}};
+        fastcgi_pass owncloud;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_script_name;

@@ -12,20 +12,10 @@ owncloud:
   environment:
     NAME_LINK_NGINX: owncloud
   volumes:
-    - /opt/nginx/sites-enabled:/opt/nginx
-    - /opt/owncloud/config:/opt/config
+    - /opt/owncloud/nginx/log:/var/log/nginx
+    - /opt/owncloud/nginx/sites-enabled:/etc/nginx/sites-enabled
+    - /opt/owncloud/nginx/certs:/etc/nginx/certs
+    - /opt/owncloud/nginx/conf.d:/etc/nginx/conf.d
   links:
     - postgres:postgres
 
-nginx:
-  image: dockerfile/nginx:latest
-  volumes:
-    - /opt/nginx/log:/var/log/nginx
-    - /opt/nginx/sites-enabled:/etc/nginx/sites-enabled
-    - /opt/nginx/certs:/etc/nginx/certs
-    - /opt/nginx/conf.d:/etc/nginx/conf.d
-  ports:
-    - "80:80"
-    - "443:443"
-  links:
-    - owncloud:owncloud

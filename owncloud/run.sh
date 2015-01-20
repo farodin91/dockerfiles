@@ -2,7 +2,7 @@
 
 echo "START OWNCLOUD"
 
-NGINX_DIR="/opt/nginx"
+NGINX_DIR="/etc/nginx/sites-enabled/"
 TMP_NGINX_DIR="/tmp/nginx"
 CONFIG_DIR="/opt/config"
 
@@ -33,38 +33,18 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
         sed 's/{{PORT}}/'"${PORT}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{INDEX_PHP}}/'"${INDEX_PHP}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
         sed 's/{{NGINX_MAX_UPLOAD_SIZE}}/'"${NGINX_MAX_UPLOAD_SIZE}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
+        sed 's/{{ROOT}}/'"${DATA_DIR}"'/' -i $NGINX_DIR/$NAME_LINK_NGINX
     fi
 fi
 
-chown 777  ${DATA_DIR} -R
+chown 777  www-data:www-data -R
 
 echo "WRITE CONFIG"
 
-sed 's/;daemonize = yes/daemonize = no/g' -i /etc/php5/fpm/php-fpm.conf \
-&& sed 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' -i /etc/php5/fpm/php.ini \
-&& sed 's/listen = \/var\/run\/php5-fpm.sock/listen = '"${FASTCGI_PORT}"'/g' -i /etc/php5/fpm/pool.d/www.conf \
-&& sed 's,;chroot =,chroot = '"${DATA_DIR}"',g' -i /etc/php5/fpm/pool.d/www.conf
-
-if [ -e $CONFIG_DIR/php.ini ]; then
-    cp $CONFIG_DIR/php.ini /etc/php5/fpm/php.ini
-else
-	echo "INIT PHP.INI"
-    cp /etc/php5/fpm/php.ini $CONFIG_DIR/php.ini
-fi
-
-if [ -e $CONFIG_DIR/php-fpm.conf ]; then
-    cp $CONFIG_DIR/php-fpm.conf /etc/php5/fpm/php-fpm.conf
-else
-	echo "INIT PHP-FPM.CONF"
-    cp /etc/php5/fpm/php-fpm.conf $CONFIG_DIR/php-fpm.conf
-fi
-
-if [ -e $CONFIG_DIR/www.conf ]; then
-    cp $CONFIG_DIR/www.conf /etc/php5/fpm/pool.d/www.conf
-else
-	echo "INIT WWW.CONF"
-    cp /etc/php5/fpm/pool.d/www.conf $CONFIG_DIR/www.conf
-fi
+tail -F /var/log/nginx/*.log /var/log/cron/owncloud.log &
 
 echo "RUN OWNCLOUD"
-php5-fpm -F
+
+/usr/sbin/cron -f &
+/etc/init.d/php5-fpm start
+/etc/init.d/nginx start
