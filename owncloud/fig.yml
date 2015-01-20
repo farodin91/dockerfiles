@@ -15,7 +15,6 @@ owncloud:
     - /opt/owncloud/nginx/log:/var/log/nginx
     - /opt/owncloud/log:/var/log/cron
     - /opt/owncloud/data:/var/www/owncloud/data
-    - /opt/owncloud/nginx/sites-enabled:/etc/nginx/sites-enabled
     - /opt/owncloud/nginx/certs:/etc/nginx/certs
     - /opt/owncloud/nginx/conf.d:/etc/nginx/conf.d
   links:

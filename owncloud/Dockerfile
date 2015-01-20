@@ -42,7 +42,7 @@ RUN crontab /etc/oc-cron.conf
 RUN mkdir -p /var/log/cron /var/www/owncloud/data
 #ADD test.php /var/www/test.php
 
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/owncloud/config", "/var/www/owncloud/data","/var/log/cron/"]
+VOLUME ["/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/owncloud/config", "/var/www/owncloud/data","/var/log/cron/"]
 
 EXPOSE 80
 EXPOSE 443
