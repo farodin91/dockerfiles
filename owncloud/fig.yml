@@ -12,11 +12,11 @@ owncloud:
   environment:
     NAME_LINK_NGINX: owncloud
   volumes:
-    - /opt/owncloud/nginx/log:/var/log/nginx
     - /opt/owncloud/log:/var/log/cron
     - /opt/owncloud/data:/var/www/owncloud/data
+    - /opt/owncloud/nginx/log:/var/log/nginx
     - /opt/owncloud/nginx/certs:/etc/nginx/certs
-    - /opt/owncloud/nginx/conf.d:/etc/nginx/conf.d
+    - /opt/owncloud/nginx/config/opt/nginx
   links:
     - postgres:postgres
   ports:
