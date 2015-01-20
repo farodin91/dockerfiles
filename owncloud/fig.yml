@@ -16,7 +16,7 @@ owncloud:
     - /opt/owncloud/data:/var/www/owncloud/data
     - /opt/owncloud/nginx/log:/var/log/nginx
     - /opt/owncloud/nginx/certs:/etc/nginx/certs
-    - /opt/owncloud/nginx/config/opt/nginx
+    - /opt/owncloud/nginx/config:/opt/nginx
   links:
     - postgres:postgres
   ports:
