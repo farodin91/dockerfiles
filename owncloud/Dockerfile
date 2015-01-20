@@ -5,16 +5,23 @@ ENV DATA_DIR /var/www/owncloud
 ENV VERSION 7.0.2
 ENV DEBIAN_FRONTEND noninteractive
 
+ADD run.sh /owncloud-run
+ADD autoconfig.php /tmp/autoconfig.php 
+ADD cron.conf /etc/oc-cron.conf
+COPY nginx/ /tmp/nginx/
+
 # Install Nginx.
 RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
-  apt-get install -y nginx && \
-  chown -R www-data:www-data /var/lib/nginx
+  	add-apt-repository -y ppa:nginx/stable && \
+  	apt-get update && \
+  	apt-get install -y nginx && \
+  	chown -R www-data:www-data /var/lib/nginx
 
-RUN apt-get update && \
+# Install PHP.
+RUN \
+	apt-get update && \
 	apt-get install -y php5-cli php5-fpm php5-curl php5-gd php5-mcrypt \ 
-	php5-mysql php5-pgsql php5-sqlite sharutils libmcrypt4 \
+	php5-pgsql php5-sqlite sharutils libmcrypt4 \
 	ffmpegthumbnailer smbclient php-xml-parser php5-intl \
 	php5-curl liboauth-php libphp-pclzip libphp-phpmailer php-file \
 	php-aws-sdk php-crypt-blowfish php-doctrine-common php-dompdf php-dropbox \
@@ -26,21 +33,16 @@ RUN apt-get update && \
 	php5-oauth php5-readline php5-tidy php5-xsl sdop zend-framework \
 	zend-framework-bin libzend-framework-php &&\
 	apt-get clean && \
-	mkdir -p /var/www/owncloud /data/config
+	mkdir -p /var/www/owncloud /data/config /var/log/cron /var/www/owncloud/data /opt/nginx/conf
 
+# Install Owncloud.
 RUN cd /tmp && \
 	wget https://download.owncloud.org/community/owncloud-${VERSION}.tar.bz2 && \
 	tar -C /var/www/ -xvf owncloud-${VERSION}.tar.bz2 && \
-	rm owncloud-${VERSION}.tar.bz2
-	rm -rf /var/lib/apt/lists/*
+	rm owncloud-${VERSION}.tar.bz2 && \
+	rm -rf /var/lib/apt/lists/* && \
+	crontab /etc/oc-cron.conf
 
-ADD run.sh /owncloud-run
-COPY nginx/ /tmp/nginx/
-ADD autoconfig.php /tmp/autoconfig.php 
-ADD cron.conf /etc/oc-cron.conf
-RUN crontab /etc/oc-cron.conf
-RUN mkdir -p /var/log/cron /var/www/owncloud/data /opt/nginx/conf
-#ADD test.php /var/www/test.php
 
 VOLUME ["/etc/nginx/certs", "/opt/nginx", "/var/log/nginx", "/var/www/owncloud/config", "/var/www/owncloud/data","/var/log/cron/"]
 
