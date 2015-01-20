@@ -38,7 +38,7 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     fi
 fi
 
-chown -R www-data:www-data
+chown 777 -R 
 
 echo "WRITE CONFIG"
 
@@ -53,5 +53,5 @@ tail -F /var/log/nginx/*.log /var/log/cron/owncloud.log &
 echo "RUN OWNCLOUD"
 
 /usr/sbin/cron -f &
-/etc/init.d/php5-fpm start
 /etc/init.d/nginx start
+php5-fpm -F
