@@ -33,6 +33,8 @@ chown -R www-data:www-data /var/www/owncloud/*
 
 echo "WRITE CONFIG"
 
+sed 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' -i /etc/php5/fpm/pool.d/www.conf 
+
 echo "SETUP LOG"
 
 touch /var/log/nginx/access.log
