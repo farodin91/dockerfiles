@@ -6,6 +6,7 @@ NGINX_DIR="/etc/nginx/sites-enabled/"
 TMP_NGINX_DIR="/tmp/nginx"
 CONFIG_DIR="/opt/config"
 
+
 echo "SETUP ENV"
 
 DATA_DIR=${DATA_DIR:-/var/www}
@@ -37,9 +38,15 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     fi
 fi
 
-chown 777  www-data:www-data -R
+chown -R www-data:www-data
 
 echo "WRITE CONFIG"
+
+echo "SETUP LOG"
+
+touch /var/log/nginx/access.log
+touch /var/log/nginx/error.log
+touch /var/log/cron/owncloud.log
 
 tail -F /var/log/nginx/*.log /var/log/cron/owncloud.log &
 

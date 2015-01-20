@@ -10,8 +10,8 @@ server {
     client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
 
 
-    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
-    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 
     location = / {
         try_files $uri $uri/ /index.php;

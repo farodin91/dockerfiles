@@ -8,8 +8,8 @@ server {
     server_name {{SERVER_NAME}};
     server_tokens off; ## Don't show the nginx version number, a security best practice
     return 301 https://$host:{{PORT}}$request_uri;
-    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
-    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 }
 
 server{
@@ -22,8 +22,8 @@ server{
     client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
 
 
-    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
-    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 
     location = / {
         try_files $uri $uri/ /index.php;

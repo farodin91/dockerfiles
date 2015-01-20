@@ -13,6 +13,7 @@ owncloud:
     NAME_LINK_NGINX: owncloud
   volumes:
     - /opt/owncloud/nginx/log:/var/log/nginx
+    - /opt/owncloud/log:/var/log/cron
     - /opt/owncloud/nginx/sites-enabled:/etc/nginx/sites-enabled
     - /opt/owncloud/nginx/certs:/etc/nginx/certs
     - /opt/owncloud/nginx/conf.d:/etc/nginx/conf.d

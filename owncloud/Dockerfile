@@ -39,9 +39,10 @@ COPY nginx/ /tmp/nginx/
 ADD autoconfig.php /tmp/autoconfig.php 
 ADD cron.conf /etc/oc-cron.conf
 RUN crontab /etc/oc-cron.conf
+RUN mkdir -p /var/log/cron
 #ADD test.php /var/www/test.php
 
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/owncloud/config"]
+VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/owncloud/config","/var/log/cron/"]
 
 EXPOSE 80
 EXPOSE 443
