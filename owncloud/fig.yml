@@ -19,4 +19,7 @@ owncloud:
     - /opt/owncloud/nginx/conf.d:/etc/nginx/conf.d
   links:
     - postgres:postgres
+  ports:
+    - "80:80"
+    - "443:443"
 
