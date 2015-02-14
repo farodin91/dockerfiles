@@ -20,6 +20,4 @@ if [ ! -e $DATA_DIR/eula.txt ]; then
 		exit 1
 	fi
 fi
-
-
-java $JVM_OPTS -jar $DATA_DIR/forge.jar
+java $JVM_OPTS -jar forge.jar

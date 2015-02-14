@@ -10,7 +10,7 @@ RUN java -jar installer.jar --installServer
 RUN rm installer.jar 
 RUN mv forge-${VERSION}-universal.jar forge.jar
 
-ADD run.sh /run
+ADD run.sh /run.sh
 
 EXPOSE 25565
 
@@ -19,4 +19,4 @@ VOLUME ["/data/world","/data/mods","/data/config","/data"]
 WORKDIR /data
 ENV JVM_OPTS -Xmx2024M -Xms2024M
 
-CMD [ "sh", "/run" ]
+CMD [ "sh", "/run.sh" ]
