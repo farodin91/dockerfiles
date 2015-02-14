@@ -22,4 +22,4 @@ if [ ! -e $DATA_DIR/eula.txt ]; then
 fi
 
 
-java $JVM_OPTS -jar forge.jar
+java $JVM_OPTS -jar $DATA_DIR/forge.jar
