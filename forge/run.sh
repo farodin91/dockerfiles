@@ -2,7 +2,7 @@
 DATA_DIR=/data
 VERSION_MINE=1.7.10
 
-if [ ! -e $DATA_DIR/forge.jar ]
+if [ ! -e $DATA_DIR/forge.jar ]; then
 	cp /tmp $DATA_DIR
 fi
 
