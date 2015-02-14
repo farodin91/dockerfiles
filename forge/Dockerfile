@@ -4,10 +4,11 @@ MAINTAINER farodin91
 
 ENV VERSION 1.7.10-10.13.2.1291
 
-RUN wget -O /tmp/installer.jar http://files.minecraftforge.net/maven/net/minecraftforge/forge/${VERSION}/forge-${VERSION}-installer.jar
-RUN java -jar /tmp/installer.jar --installServer 
-RUN rm /tmp/installer.jar 
-RUN mv /tmp/forge-${VERSION}-universal.jar forge.jar
+RUN cd /root
+RUN wget -O /root/installer.jar http://files.minecraftforge.net/maven/net/minecraftforge/forge/${VERSION}/forge-${VERSION}-installer.jar
+RUN java -jar /root/installer.jar --installServer 
+RUN rm /root/installer.jar 
+RUN mv /root/forge-${VERSION}-universal.jar forge.jar
 
 ADD run.sh /run.sh
 
