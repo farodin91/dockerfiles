@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Au",
+				"AUTOCONFIG"
+			],
+			[
+				"Co",
+				"CONFIG"
+			],
+			[
 				"ow",
 				"-ownloud"
 			],
@@ -144,11 +152,20 @@
 	"buffers":
 	[
 		{
-			"file": "owncloud/Dockerfile",
+			"file": "samba/Dockerfile",
 			"settings":
 			{
-				"buffer_size": 1376,
+				"buffer_size": 205,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "samba/smb.conf",
+			"settings":
+			{
+				"buffer_size": 9535,
+				"line_ending": "Windows",
+				"name": "smb.conf"
 			}
 		}
 	],
@@ -208,24 +225,28 @@
 		"/C/Users/Jan/Documents/dockerfiles/forge",
 		"/C/Users/Jan/Documents/dockerfiles/ghost",
 		"/C/Users/Jan/Documents/dockerfiles/owncloud",
+		"/C/Users/Jan/Documents/dockerfiles/owncloud/nginx",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm/nginx",
 		"/C/Users/Jan/Documents/dockerfiles/ruby",
+		"/C/Users/Jan/Documents/dockerfiles/samba",
 		"/C/Users/Jan/Documents/dockerfiles/teamspeak"
 	],
 	"file_history":
 	[
-		"/C/Users/Jan/Documents/dockerfiles/owncloud/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/owncloud/fig.yml",
+		"/C/Users/Jan/Documents/dockerfiles/owncloud/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/owncloud/run.sh",
+		"/C/Users/Jan/Documents/dockerfiles/owncloud/autoconfig.php",
+		"/C/Users/Jan/Documents/dockerfiles/owncloud/nginx/owncloud",
 		"/C/Users/Jan/Documents/dockerfiles/owncloud/nginx/owncloud-ssl",
+		"/C/Users/Jan/Documents/dockerfiles/owncloud/cron.conf",
+		"/C/Users/Jan/Documents/dockerfiles/ruby/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm/run.sh",
 		"/C/Users/Jan/Documents/dockerfiles/ghost/config.js",
 		"/C/Users/Jan/Documents/dockerfiles/owncloud/test.php",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm/nginx/phpfpm",
-		"/C/Users/Jan/Documents/dockerfiles/owncloud/nginx/owncloud",
-		"/C/Users/Jan/Documents/dockerfiles/owncloud/autoconfig.php",
 		"/C/Users/Jan/Documents/dockerfiles/ghost/run.sh",
 		"/C/Users/Jan/Documents/dockerfiles/phpfpm/nginx/phpfpm-ssl",
 		"/C/Users/Jan/Git/cellphone2/libraries/Adafruit_PCD8544/Adafruit_PCD8544.cpp",
@@ -233,7 +254,6 @@
 		"/C/Users/Jan/Documents/dockerfiles/ghost/fig.yml",
 		"/C/Users/Jan/Documents/dockerfiles/samba/fig.yml",
 		"/C/Users/Jan/Documents/dockerfiles/ruby/run.sh",
-		"/C/Users/Jan/Documents/dockerfiles/ruby/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/samba/Dockerfile",
 		"/C/Users/Jan/Documents/dockerfiles/ruby/fig.yml",
 		"/C/Users/Jan/Documents/dockerfiles/ruby/nginx/ruby",
@@ -318,6 +338,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"}\n",
 			"getVillages",
 			"villages",
 			"modelDataService'",
@@ -373,25 +394,24 @@
 			[
 				{
 					"buffer": 0,
-					"file": "owncloud/Dockerfile",
+					"file": "samba/Dockerfile",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1376,
+						"buffer_size": 205,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1153,
-								1153
+								80,
+								69
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Dockerfile Syntax Highlighting/Dockerfile.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Dockerfile Syntax Highlighting/Dockerfile.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -399,12 +419,36 @@
 					},
 					"stack_index": 0,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "samba/smb.conf",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1045,
+								1046
+							]
+						],
+						"settings":
+						{
+							"auto_name": "smb.conf",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -425,18 +469,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.488535324068,
 			1.0
 		],
 		"rows":

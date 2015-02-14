@@ -2,7 +2,7 @@ FROM dockerfile/java:latest
 
 MAINTAINER farodin91
 
-ENV VERSION 1.7.10-10.13.2.1230
+ENV VERSION 1.7.10-10.13.2.1291
 
 RUN cd /data
 RUN wget -O installer.jar http://files.minecraftforge.net/maven/net/minecraftforge/forge/${VERSION}/forge-${VERSION}-installer.jar

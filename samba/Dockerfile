@@ -2,7 +2,7 @@ FROM dockerfile/ubuntu
 
 
 RUN apt-get update && \
-	apt-get install -y samba smbfs
+	apt-get install -y libnss-ldap samba samba-doc smbldap-tools smbclient
 
 VOLUME ["/var/log/samba","/data"]
 
