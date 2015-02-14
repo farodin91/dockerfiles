@@ -3,7 +3,7 @@ DATA_DIR=/data
 VERSION_MINE=1.7.10
 
 if [ ! -e $DATA_DIR/forge.jar ]; then
-	cp -r /tmp $DATA_DIR
+	cp -r /tmp $DATA_DIR/
 fi
 
 if [ ! -e $DATA_DIR/eula.txt ]; then
