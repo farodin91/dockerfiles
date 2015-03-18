@@ -1,0 +1,2 @@
+
+puppet apply init.py
