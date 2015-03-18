@@ -25,7 +25,7 @@ sed 's/{{LDAP_GROUP_SUFFIX}}/'"${LDAP_GROUP_SUFFIX}"'/' -i $INIT_CONF
 sed 's/{{LDAP_MACHINE_SUFFIX}}/'"${LDAP_MACHINE_SUFFIX}"'/' -i $INIT_CONF
 sed 's/{{LDAP_USER_SUFFIX}}/'"${LDAP_USER_SUFFIX}"'/' -i $INIT_CONF
 
-puppet apply init.pp
+puppet apply -vd init.pp
 
 /etc/init.d/samba start
 
