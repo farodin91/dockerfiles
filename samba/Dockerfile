@@ -11,3 +11,5 @@ ADD init.pp /opt/init.pp
 VOLUME ["/var/log/samba","/data","/etc/samba","/home"]
 
 CMD [ "bash", "/opt/run.sh" ]
+
+EXPOSE 139 445 636
