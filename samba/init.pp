@@ -9,7 +9,7 @@ class { '::samba::server' :
   os_level             => '50',
   preferred_master     => 'yes',
   ldap_suffix          => 'dc={{LDAP_SUFFIX}}',
-  ldap_url             => '{{LDAP_URL}}',
+  ldap_url             => 'ldap://localhost',
   ldap_ssl             => '{{LDAP_SSL}}',
   ldap_admin_dn        => '{{LDAP_ADMIN_DN}}',
   ldap_group_suffix    => 'ou={{LDAP_GROUP_SUFFIX}}',
