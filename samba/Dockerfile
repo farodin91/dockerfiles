@@ -4,7 +4,7 @@ RUN useradd -ms /bin/bash samba
 WORKDIR /opt
 
 RUN puppet module install thias-samba
-RUN apt-get instal samba
+RUN apt-get install samba
 
 ADD run.sh /opt/run.sh
 ADD init.pp /opt/init.pp

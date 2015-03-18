@@ -17,7 +17,6 @@ sed 's/{{WORKGROUP}}/'"${WORKGROUP}"'/' -i $INIT_CONF
 sed 's/{{SERVER_STRING}}/'"${SERVER_STRING}"'/' -i $INIT_CONF
 sed 's/{{NETBIOS_NAME}}/'"${NETBIOS_NAME}"'/' -i $INIT_CONF
 sed 's/{{LDAP_SUFFIX}}/'"${LDAP_SUFFIX}"'/' -i $INIT_CONF
-sed 's,{{LDAP_URL}},'"${LDAP_URL}"'/' -i $INIT_CONF
 sed 's/{{LDAP_SSL}}/'"${LDAP_SSL}"'/' -i $INIT_CONF
 sed 's/{{LDAP_ADMIN_DN}}/'"${LDAP_ADMIN_DN}"'/' -i $INIT_CONF
 sed 's/{{LDAP_GROUP_SUFFIX}}/'"${LDAP_GROUP_SUFFIX}"'/' -i $INIT_CONF
