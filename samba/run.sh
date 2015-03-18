@@ -1,2 +1,2 @@
 
-puppet apply init.py
+puppet apply init.pp
