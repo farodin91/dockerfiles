@@ -1,2 +1,2 @@
 
-puppet apply init.pp
+puppet apply -dv init.pp
