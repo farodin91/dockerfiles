@@ -1,6 +1,6 @@
 include 'samba::server'
 
-class { '::samba::server':
+samba::server { 
   workgroup            => 'EXAMPLE',
   server_string        => 'Example File Server 01',
   netbios_name         => 'F01',
