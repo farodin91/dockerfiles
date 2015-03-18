@@ -1,3 +1,5 @@
+include samba::server
+
 class { 'samba::server':
   workgroup            => 'EXAMPLE',
   server_string        => 'Example File Server 01',
