@@ -1,13 +1,13 @@
-FROM dockerfile/ubuntu
+FROM farodin91/puppet
 
+USER samba
+WORKDIR /opt
 
-RUN apt-get update && \
-	apt-get install -y libnss-ldap samba samba-doc smbldap-tools smbclient
+RUN puppet module install alkivi-samba
+
+ADD run.sh /opt/run.sh
+ADD init.pp /opt/init.pp
 
 VOLUME ["/var/log/samba","/data"]
 
-EXPOSE 389
-EXPOSE 636
-EXPOSE 445
-
-CMD [ "bash" ]
+CMD [ "bash", "/opt/run.sh" ]

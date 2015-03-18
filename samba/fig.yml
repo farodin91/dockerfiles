@@ -1,5 +1,0 @@
-samba:
-  build: .
-  volumes:
-    - /opt/samba/log:/var/log/samba
-    - /opt/samba/data:/data
