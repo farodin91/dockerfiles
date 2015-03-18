@@ -1,4 +1,4 @@
-include samba::server
+include '::samba::server'
 
 class { 'samba::server':
   workgroup            => 'EXAMPLE',
