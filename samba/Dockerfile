@@ -3,7 +3,7 @@ FROM farodin91/puppet
 RUN useradd -ms /bin/bash samba
 WORKDIR /opt
 
-RUN puppet module install alkivi-samba
+RUN puppet module install thias-samba
 
 USER samba
 

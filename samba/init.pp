@@ -1,29 +1,31 @@
-class { 'samba': 
-  workgroup     => 'TEST',
-  netbios_name  => 'TEST',
-  server_strina => 'Awesome Test FileServer',
-}
-
-samba::share { 'homes': 
-  options => { 
-    'comment'        => 'Home Directories' ,
-    'browseable'     => 'no' ,
-    'read only'      => 'yes',
-    'create mask'    => '0700',
-    'directory mask' => '0700',
-    'valid users'    => '%S',
+class { '::samba::server':
+  workgroup            => 'EXAMPLE',
+  server_string        => 'Example File Server 01',
+  netbios_name         => 'F01',
+  interfaces           => [ 'lo', 'eth0' ],
+  hosts_allow          => [ '127.', '192.168.' ],
+  local_master         => 'yes',
+  map_to_guest         => 'Bad User',
+  os_level             => '50',
+  preferred_master     => 'yes',
+  extra_global_options => [
+    'printing = BSD',
+    'printcap name = /dev/null',
+  ],
+  shares => {
+    'homes' => [
+      'comment = Home Directories',
+      'browseable = no',
+      'writable = yes',
+    ],
+    'pictures' => [
+      'comment = Pictures',
+      'path = /srv/pictures',
+      'browseable = yes',
+      'writable = yes',
+      'guest ok = yes',
+      'available = yes',
+    ],
   },
-}
-
-class { 'samba::ldap':
-  ldap_uri            => 'ldap://localhost',
-  ldap_ssl            => 'no',
-  ldap_delete_dn      => 'no',
-  ldap_password_sync  => 'yes',
-  ldap_admin_dna      => 'cn=admin,dc=test',
-  ldap_suffix         => 'dc=test',
-  ldap_user_suffix    => 'ou=people',
-  ldap_group_suffix   => 'ou=groups',
-  ldap_machine_suffix => 'ou=computers',
-  ldap_idmap_suffix   => 'ou=idmap',
+  selinux_enable_home_dirs => true,
 }
