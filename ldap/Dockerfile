@@ -10,7 +10,9 @@ RUN \
 
 # Install OpenLDAP.
 RUN \
-	apt-get install -y slapd
+	apt-get install -y slapd && \
+	rm -R /etc/ldap/slapd.d/ && \
+	mkdir /etc/ldap/slapd.d/
 
 # Install unixODBC.
 RUN \
