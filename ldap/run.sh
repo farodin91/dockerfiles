@@ -18,7 +18,7 @@ fi
 
 echo "CONFIGURE ODBC"
 
-if [ ! -e $EDIT_ODBC_CONF ]; then
+if [ ! -e $ODBC_CONF ]; then
 	cp $TMP_ODBC_CONF $ODBC_CONF
 
     sed 's/{{HOST}}/'"${POSTGRES_HOST}"'/' -i $ODBC_CONF
@@ -35,4 +35,4 @@ fi
 
 
 
-/usr/sbin/slapd -d 0 -F /data/config
+/usr/sbin/slapd -d 1
