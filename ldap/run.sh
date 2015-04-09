@@ -1,6 +1,6 @@
 
 SLAPD_CONF="/etc/ldap/slapd.conf"
-EDIT_ODBC_CONF="/data/config/odbc.ini"
+EDIT_SLAPD_CONF="/data/config/slapd.conf"
 TMP_SLAPD_CONF="/tmp/slapd.conf"
 EDIT_ODBC_CONF="/data/config/odbc.ini"
 ODBC_CONF="/etc/odbc.ini"
@@ -10,10 +10,14 @@ TMP_ODBC_CONF="/tmp/odbc.ini"
 echo "CONFIGURE SLAPD"
 
 if [ ! -e $SLAPD_CONF ]; then
+	cp $TMP_SLAPD_CONF $SLAPD_CONF
+
     sed 's/{{DB_USERNAME}}/'"${POSTGRES_USER}"'/' -i $SLAPD_CONF
     sed 's/{{DB_PASSWORD}}/'"${POSTGRES_PASSWORD}"'/' -i $SLAPD_CONF
 
-    cp $TMP_SLAPD_CONF $SLAPD_CONF
+    cp $SLAPD_CONF $EDIT_ODBC_CONF
+else
+    cp $EDIT_SLAPD_CONF $SLAPD_CONF
 fi
 
 echo "CONFIGURE ODBC"
