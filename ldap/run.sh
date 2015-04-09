@@ -1,5 +1,5 @@
 
-SLAPD_CONF="/etc/ldap/slapd.conf"
+SLAPD_CONF="/etc/ldap/slapd.d/slapd.conf"
 EDIT_SLAPD_CONF="/data/config/slapd.conf"
 TMP_SLAPD_CONF="/tmp/slapd.conf"
 EDIT_ODBC_CONF="/data/config/odbc.ini"
@@ -9,7 +9,7 @@ TMP_ODBC_CONF="/tmp/odbc.ini"
 
 echo "CONFIGURE SLAPD"
 
-if [ ! -e $SLAPD_CONF ]; then
+if [ ! -e $EDIT_SLAPD_CONF ]; then
 	cp $TMP_SLAPD_CONF $SLAPD_CONF
 
     sed 's/{{DB_USERNAME}}/'"${POSTGRES_USER}"'/' -i $SLAPD_CONF
@@ -22,7 +22,7 @@ fi
 
 echo "CONFIGURE ODBC"
 
-if [ ! -e $ODBC_CONF ]; then
+if [ ! -e $EDIT_ODBC_CONF ]; then
 	cp $TMP_ODBC_CONF $ODBC_CONF
 
     sed 's/{{HOST}}/'"${POSTGRES_HOST}"'/' -i $ODBC_CONF
@@ -34,9 +34,5 @@ if [ ! -e $ODBC_CONF ]; then
 else
     cp $EDIT_ODBC_CONF $ODBC_CONF
 fi
-
-
-
-
 
 /usr/sbin/slapd -d 1
