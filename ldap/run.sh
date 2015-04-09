@@ -15,7 +15,7 @@ if [ ! -e $EDIT_SLAPD_CONF ]; then
     sed 's/{{DB_USERNAME}}/'"${POSTGRES_USER}"'/' -i $SLAPD_CONF
     sed 's/{{DB_PASSWORD}}/'"${POSTGRES_PASSWORD}"'/' -i $SLAPD_CONF
 
-    cp $SLAPD_CONF $EDIT_ODBC_CONF
+    cp $SLAPD_CONF $EDIT_SLAPD_CONF
 else
     cp $EDIT_SLAPD_CONF $SLAPD_CONF
 fi
