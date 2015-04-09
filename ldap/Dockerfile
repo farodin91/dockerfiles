@@ -5,7 +5,7 @@ MAINTAINER farodin91
 # Install install function.
 RUN \
 	mkdir /data && \
-	apt-get update
+	apt-get update	
 #	apt-get install -y wget
 
 # Install OpenLDAP.
@@ -24,6 +24,7 @@ RUN \
 ADD run.sh /data/run
 ADD odbc.ini /tmp/odbc.ini
 ADD odbcinst.ini /tmp/odbcinst.ini
+ADD slapd.conf /tmp/slapd.conf
 
 VOLUME ["/data/config"]
 
