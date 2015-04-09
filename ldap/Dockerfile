@@ -5,7 +5,7 @@ MAINTAINER farodin91
 # Install install function.
 RUN \
 	mkdir /data && \
-	apt-get update && \
+	apt-get update
 #	apt-get install -y wget
 
 # Install OpenLDAP.
