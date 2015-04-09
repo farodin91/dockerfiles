@@ -1,5 +1,5 @@
 
-SLAPD_CONF="/etc/ldap/slapd.d/slapd.conf"
+SLAPD_CONF="/etc/ldap/slapd.conf"
 EDIT_SLAPD_CONF="/data/config/slapd.conf"
 TMP_SLAPD_CONF="/tmp/slapd.conf"
 EDIT_ODBC_CONF="/data/config/odbc.ini"
