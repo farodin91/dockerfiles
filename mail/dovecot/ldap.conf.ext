@@ -1,0 +1,16 @@
+hosts = 192.168.99.1 # Windows Active Directory
+dn = CN=Dovecot Administrator,OU=ServiceAccounts,DC=domain,DC=local
+dnpass = MeinPasswortDesServiceAccounts
+tls = no 
+auth_bind = yes # Für die Dauer der Authentifizierung bindet sich Dovecot als einloggender Mailuser
+ldap_version = 3
+base = OU=People,DC=domain,DC=local # Meine OU mit Benutzern
+scope = subtree
+user_attrs = \
+  =quota_rule=*:bytes=%{ldap:quotaBytes}, \
+  =home=/var/vmail/%d/%{ldap:uid}, \
+  =mail=maildir:/var/vmail/%d/%{ldap:uid}/Maildir
+user_filter = (&(mail=%u)(objectClass=person)) # Nur Personen, nur nicht-deaktivierte, nur mit Mail-Attribut
+pass_filter = (&(mail=%u)(objectClass=person)) # Nur Personen, nur nicht-deaktivierte, nur mit Mail-Attribut
+iterate_attrs = mail=user # Wird vor allem von "doveadm" benötigt, um Benutzer zu finden
+iterate_filter = (objectClass=person)
