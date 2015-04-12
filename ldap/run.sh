@@ -7,6 +7,9 @@ ODBC_CONF="/etc/odbc.ini"
 TMP_ODBC_CONF="/tmp/odbc.ini"
 
 
+sed 's/SLAPD_CONF=/'"SLAPD_CONF=/data/config/slapd.conf"'/' -i /etc/default/slapd
+
+
 echo "CONFIGURE SLAPD"
 
 if [ ! -e $EDIT_SLAPD_CONF ]; then
