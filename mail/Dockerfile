@@ -18,7 +18,7 @@ RUN \
 
 # Install Dovecot.
 RUN \
-    apt-get install -y dovecot dovecot-ldap dovecot-imapd dovecot-lmtpd dovecot-lda
+    apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd
 
 ADD run.sh /data/run
 ADD dovecot/dovecot.conf /tmp/dovecot/dovecot.conf
