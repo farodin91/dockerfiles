@@ -6,10 +6,10 @@ MAINTAINER farodin91
 RUN \
     mkdir /data && \
     mkdir /data/config && \
-    mkdir /data/config/postfix && \
-    mkdir /data/config/dovecot && \
     mkdir /tmp/postfix && \
     mkdir /tmp/dovecot && \
+    mkdir /var/log/dovecot && \
+    mkdir /var/vmail && \
     apt-get update  
 
 # Install Postfix.
@@ -18,13 +18,14 @@ RUN \
 
 # Install Dovecot.
 RUN \
-    apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd
+    apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd && \
+    rm -r \etc\dovecot\*
 
 ADD run.sh /data/run
 ADD dovecot/dovecot.conf /tmp/dovecot/dovecot.conf
 ADD dovecot/dovecot-ldap.conf /tmp/dovecot/dovecot-ldap.conf
 
-VOLUME ["/data/config","/etc/dovecot","/etc/ssl","/etc/postfix","/var/vmail"]
+VOLUME ["/data/config","/etc/dovecot","/etc/ssl/certs","/etc/ssl/private","/etc/postfix","/var/vmail","/var/log/dovecot"]
 
 EXPOSE 25 143 993
 
