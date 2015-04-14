@@ -52,6 +52,3 @@ else
 fi
 
 $SERVER_DIR/ts3server_linux_amd64
-
-
-
