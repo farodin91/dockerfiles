@@ -12,14 +12,14 @@ RUN \
     mkdir /var/vmail && \
     apt-get update  
 
-# Install Postfix.
-#RUN \
-#    apt-get install -y postfix postfix-tls postfix-ldap postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
-
 # Install Dovecot.
 RUN \
     apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd && \
-    rm -r \etc\dovecot\*
+    rm -r /etc/dovecot/*
+
+# Install Postfix.
+#RUN \
+#    apt-get install -y postfix postfix-tls postfix-ldap postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
 
 ADD run.sh /data/run
 ADD dovecot/dovecot.conf /tmp/dovecot/dovecot.conf
