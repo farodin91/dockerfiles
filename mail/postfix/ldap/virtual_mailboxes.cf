@@ -1,0 +1,6 @@
+#virtual_mailboxes.cf
+server_host = localhost
+server_port = 389
+search_base = dc=testlab,dc=local
+query_filter = (|(mail=%s)(mailAlternateAddress=%s))
+result_attribute = mailMessageStore

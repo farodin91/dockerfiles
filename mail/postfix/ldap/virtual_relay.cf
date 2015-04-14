@@ -1,0 +1,6 @@
+#virtual_relay.cf
+server_host = localhost
+server_port = 389
+search_base = ou=forwardDomains,dc=testlab,dc=local
+query_filter = (associatedDomain=%s)
+result_attribute = associatedDomain

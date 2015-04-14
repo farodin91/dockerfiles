@@ -18,18 +18,19 @@ RUN \
     rm -r /etc/dovecot/*
 
 # Install Postfix.
-#RUN \
-#    apt-get install -y postfix postfix-tls postfix-ldap postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
+RUN \
+    apt-get install -y postfix postfix-ldap
+# postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
 
 # Tests
 RUN apt-get install -y htop wget telnet
 
 ADD run.sh /data/run
-ADD dovecot/dovecot.conf /tmp/dovecot/dovecot.conf
-ADD dovecot/dovecot-ldap.conf /tmp/dovecot/dovecot-ldap.conf
+ADD dovecot* /tmp/dovecot/
+ADD postfix* /tmp/postfix/
 
 VOLUME ["/data/config","/etc/dovecot","/etc/ssl/certs","/etc/ssl/private","/etc/postfix","/var/vmail","/var/log/dovecot"]
 
-EXPOSE 25 143 993
+EXPOSE 25 143 993 465
 
 CMD [ "bash", "/data/run" ]
