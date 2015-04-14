@@ -21,6 +21,9 @@ RUN \
 #RUN \
 #    apt-get install -y postfix postfix-tls postfix-ldap postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
 
+# Tests
+RUN apt-get install -y htop wget
+
 ADD run.sh /data/run
 ADD dovecot/dovecot.conf /tmp/dovecot/dovecot.conf
 ADD dovecot/dovecot-ldap.conf /tmp/dovecot/dovecot-ldap.conf
