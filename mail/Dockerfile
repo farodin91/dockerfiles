@@ -37,14 +37,14 @@ ADD run.sh /data/run
 ADD dovecot* /tmp/dovecot/
 ADD postfix* /tmp/postfix/
 
-VOLUME ["/data/config",
-        "/etc/dovecot",
-        "/etc/ssl/certs",
-        "/etc/ssl/private",
-        "/etc/postfix",
-        "/var/mail",
-        "/var/log/dovecot",
-        "/var/log/postfix"]
+VOLUME /data/config
+VOLUME /etc/dovecot
+VOLUME /etc/ssl/certs
+VOLUME /etc/ssl/private
+VOLUME /etc/postfix
+VOLUME /var/mail
+VOLUME /var/log/dovecot
+VOLUME /var/log/postfix
 
 EXPOSE 25 143 993 465
 
