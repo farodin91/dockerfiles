@@ -1,3 +1,4 @@
+# VIRTUAL
 virtual_alias_maps = ldap:/etc/postfix/ldap/virtual_aliases.cf
 virtual_mailbox_domains = ldap:/etc/postfix/ldap/virtual_domains.cf
 virtual_mailbox_maps = ldap:/etc/postfix/ldap/virtual_mailboxes.cf
@@ -8,3 +9,14 @@ virtual_gid_maps = ldap:/etc/postfix/ldap/virtual_gid.cf
 # TRANSPORT
 transport_maps = ldap:/etc/postfix/ldap/virtual_transport.cf
 relay_domains = ldap:/etc/postfix/ldap/virtual_relay.cf
+
+# TLS parameters
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_use_tls=yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+myhostname = ##SMTP_HOSTNAME##
+mydestination = $myhostname, localhost.localdomain, localhost
+append_dot_mydomain = no
