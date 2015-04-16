@@ -5,6 +5,7 @@ TMP_SLAPD_CONF="/tmp/slapd.conf"
 EDIT_ODBC_CONF="/data/config/odbc.ini"
 ODBC_CONF="/etc/odbc.ini"
 TMP_ODBC_CONF="/tmp/odbc.ini"
+DEBUG=${DEBUG:0}
 
 
 sed 's,SLAPD_CONF=,SLAPD_CONF=/data/config/slapd.conf,g' -i /etc/default/slapd
@@ -38,4 +39,5 @@ else
     cp $EDIT_ODBC_CONF $ODBC_CONF
 fi
 
-/usr/sbin/slapd -d 1
+echo "START SLAPD"
+/usr/sbin/slapd -d $DEBUG
