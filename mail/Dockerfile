@@ -19,7 +19,8 @@ RUN \
 
 # Install Postfix.
 RUN \
-    apt-get install -y postfix postfix-ldap
+    apt-get install -y postfix postfix-ldap && \
+    rm -r /etc/postfix/*
 
 # Install Spamassassin
 # RUN \
