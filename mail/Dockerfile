@@ -19,8 +19,7 @@ RUN \
 
 # Install Postfix.
 RUN \
-    apt-get install -y postfix postfix-ldap sasl2-bin lslibsasl2-modules
-# postfix-pgsql sasl2-bin libsasl2-modules libpam-pgsql
+    apt-get install -y postfix postfix-ldap
 
 # Install Spamassassin
 # RUN \
