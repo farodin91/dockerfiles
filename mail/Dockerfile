@@ -10,7 +10,8 @@ RUN \
     mkdir /tmp/dovecot && \
     mkdir /var/log/dovecot && \
     mkdir /var/log/postfix && \
-    apt-get update  
+    apt-get update  && \
+    apt-get install -y rsyslog
 
 # Install Dovecot.
 RUN \
