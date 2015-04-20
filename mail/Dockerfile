@@ -23,7 +23,7 @@ RUN \
 
 # Install Postfix.
 RUN \
-    apt-get install -y postfix postfix-ldap && \
+    apt-get install -y postfix postfix-ldap saslauthd && \
     rm -r /etc/postfix/*
 
 # Install Spamassassin
