@@ -22,7 +22,6 @@ if [ ! -e $POSTFIX_MAIN_CONF ]; then
 fi
 
 echo "CONFIGURE SUPERVISOR"
-
 chmod +x /data/postfix.sh
 chmod +x /data/dovecot.sh
 
