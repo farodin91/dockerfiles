@@ -21,5 +21,7 @@ myhostname = ##SMTP_HOSTNAME##
 mydestination = $myhostname, localhost.localdomain, localhost
 append_dot_mydomain = no
 
-smtpd_sasl_type = dovecot
 smtpd_sasl_auth_enable = yes
+smtpd_sasl_local_domain =
+smtpd_sasl_security_options = noanonymous
+smtpd_recipient_restrictions = permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination

@@ -23,7 +23,7 @@ RUN \
 
 # Install Postfix.
 RUN \
-    apt-get install -y postfix postfix-ldap sasl2-bin libsasl2-modules && \
+    apt-get install -y postfix postfix-ldap sasl2-bin libsasl2-modules libsasl2-modules-ldap && \
     rm -r /etc/postfix/*
 
 # Install Spamassassin
@@ -40,9 +40,11 @@ RUN apt-get install -y htop wget telnet nano
 ADD run.sh /data/run
 ADD postfix.sh /data/postfix.sh
 ADD dovecot.sh /data/dovecot.sh
+ADD sasl2.sh /data/sasl2.sh
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 ADD dovecot* /tmp/dovecot/
 ADD postfix* /tmp/postfix/
+ADD sasl.default /etc/default/saslauthd
 
 VOLUME /data/config
 VOLUME /etc/dovecot
