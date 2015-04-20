@@ -38,13 +38,13 @@ RUN \
 RUN apt-get install -y htop wget telnet nano
 
 ADD run.sh /data/run
-ADD postfix.sh /data/postfix.sh
-ADD dovecot.sh /data/dovecot.sh
-ADD sasl2.sh /data/sasl2.sh
-ADD supervisord.conf /etc/supervisor/supervisord.conf
-ADD dovecot* /tmp/dovecot/
-ADD postfix* /tmp/postfix/
-ADD sasl.default /etc/default/saslauthd
+ADD assets/postfix.sh /data/postfix.sh
+ADD assets/dovecot.sh /data/dovecot.sh
+ADD assets/sasl2.sh /data/sasl2.sh
+ADD assets/supervisord.conf /etc/supervisor/supervisord.conf
+ADD assets/dovecot* /tmp/dovecot/
+ADD assets/postfix* /tmp/postfix/
+ADD assets/sasl.default /etc/default/saslauthd
 
 VOLUME /data/config
 VOLUME /etc/dovecot
