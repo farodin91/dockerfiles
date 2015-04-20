@@ -21,6 +21,11 @@ if [ ! -e $POSTFIX_MAIN_CONF ]; then
 	cp -r $POSTFIX_TMP_DIR $POSTFIX_MAIN_DIR
 fi
 
+echo "CONFIGURE SUPERVISOR"
+
+chmod +x /data/postfix.sh
+chmod +x /data/dovecot.sh
+
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
