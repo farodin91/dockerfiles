@@ -2,6 +2,9 @@ FROM debian:wheezy
 
 MAINTAINER farodin91
 
+# Set noninteractive mode for apt-get
+ENV DEBIAN_FRONTEND noninteractive
+
 # Install install function.
 RUN \
     mkdir /data && \
@@ -11,7 +14,7 @@ RUN \
     mkdir /var/log/dovecot && \
     mkdir /var/log/postfix && \
     apt-get update  && \
-    apt-get install -y rsyslog
+    apt-get install -y rsyslog supervisor
 
 # Install Dovecot.
 RUN \
@@ -35,6 +38,9 @@ RUN \
 RUN apt-get install -y htop wget telnet nano
 
 ADD run.sh /data/run
+ADD postfix.sh /data/postfix.sh
+ADD dovecot.sh /data/dovecot.sh
+ADD supervisord.conf /etc/supervisor/supervisord.conf
 ADD dovecot* /tmp/dovecot/
 ADD postfix* /tmp/postfix/
 

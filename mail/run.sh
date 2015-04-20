@@ -21,11 +21,17 @@ if [ ! -e $POSTFIX_MAIN_CONF ]; then
 	cp -r $POSTFIX_TMP_DIR $POSTFIX_MAIN_DIR
 fi
 
-echo "START POSTFIX"
-postfix start
 
-echo "START DOVECOT"
-rm /var/log/dovecot/info.log
-dovecot
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
-tail -f /var/log/dovecot/info.log
+#echo "START POSTFIX"
+#postfix start
+
+#echo "START DOVECOT"
+#rm /var/log/dovecot/info.log
+#dovecot
+
+#echo "START SYSLOG"
+#rsyslogd -n -c3
+
+#tail -f /var/log/mail.log
