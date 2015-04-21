@@ -22,12 +22,16 @@ mydestination = $myhostname, localhost.localdomain, localhost
 append_dot_mydomain = no
 
 # AUTH
+smtpd_sasl_type = dovecot
 
+# Can be an absolute path, or relative to $queue_directory
+# Debian/Ubuntu users: Postfix is setup by default to run chrooted, so it is best to leave it as-is below
+smtpd_sasl_path = private/auth
 
+# On Debian Wheezy path must be relative and queue_directory defined
+#queue_directory = /var/spool/postfix
 
-
-
+# and the common settings to enable SASL:
 smtpd_sasl_auth_enable = yes
-smtpd_sasl_local_domain =
-smtpd_sasl_security_options = noanonymous
-smtpd_recipient_restrictions = permit_mynetworks,permit_sasl_authenticated,reject_unauth_destination
+# With Postfix version before 2.10, use smtpd_recipient_restrictions
+smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
