@@ -40,4 +40,4 @@ else
 fi
 
 echo "START SLAPD"
-/usr/sbin/slapd -d $DEBUG
+/usr/sbin/slapd -d $DEBUG -F "/data/config"
