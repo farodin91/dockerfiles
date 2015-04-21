@@ -21,6 +21,12 @@ myhostname = ##SMTP_HOSTNAME##
 mydestination = $myhostname, localhost.localdomain, localhost
 append_dot_mydomain = no
 
+# AUTH
+
+
+
+
+
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_local_domain =
 smtpd_sasl_security_options = noanonymous
