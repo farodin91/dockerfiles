@@ -18,12 +18,12 @@ RUN \
 
 # Install Dovecot.
 RUN \
-    apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd && \
+    apt-get install -y dovecot-ldap dovecot-imapd dovecot-lmtpd dovecot-sieve && \
     rm -r /etc/dovecot/*
 
 # Install Postfix.
 RUN \
-    apt-get install -y postfix postfix-ldap sasl2-bin libsasl2-modules libsasl2-modules-ldap && \
+    apt-get install -y postfix postfix-ldap && \
     rm -r /etc/postfix/*
 
 # Install Spamassassin
@@ -44,7 +44,6 @@ ADD assets/sasl2.sh /data/sasl2.sh
 ADD assets/supervisord.conf /etc/supervisor/supervisord.conf
 ADD assets/dovecot* /tmp/dovecot/
 ADD assets/postfix* /tmp/postfix/
-ADD assets/sasl.default /etc/default/saslauthd
 
 VOLUME /data/config
 VOLUME /etc/dovecot
