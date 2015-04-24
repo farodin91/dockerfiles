@@ -1,5 +1,5 @@
-upstream {{NAME_LINK_NGINX}}{
-	server {{NAME_LINK_NGINX}}:{{FASTCGI_PORT}};
+upstream {{UPSTREAM}}{
+	server {{UPSTREAM}}:{{FASTCGI_PORT}};
 }
 server { 
     listen 0.0.0.0:80 default_server;
@@ -10,8 +10,8 @@ server {
     client_max_body_size {{NGINX_MAX_UPLOAD_SIZE}};
 
 
-    access_log /var/log/nginx/{{NAME_LINK_NGINX}}_access.log;
-    error_log /var/log/nginx/{{NAME_LINK_NGINX}}_error.log;
+    access_log /var/log/nginx/{{UPSTREAM}}_access.log;
+    error_log /var/log/nginx/{{UPSTREAM}}_error.log;
 
     location = / {
         try_files $uri $uri/ /{{INDEX_PHP}};
@@ -21,7 +21,7 @@ server {
         root /;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_index {{INDEX_PHP}};
-        fastcgi_pass {{NAME_LINK_NGINX}};
+        fastcgi_pass {{UPSTREAM}};
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_script_name;
