@@ -34,13 +34,16 @@ RUN \
 # RUN \
 #     apt-get install -y clamav clamav-base 
 
+# Remove apt-get lists
+# RUN \
+#     rm -rf /var/lib/apt/lists/*
+
 # Tests
-RUN apt-get install -y htop wget telnet nano
+# RUN apt-get install -y htop wget telnet nano
 
 ADD run.sh /data/run
 ADD assets/postfix.sh /data/postfix.sh
 ADD assets/dovecot.sh /data/dovecot.sh
-ADD assets/sasl2.sh /data/sasl2.sh
 ADD assets/supervisord.conf /etc/supervisor/supervisord.conf
 ADD assets/dovecot* /tmp/dovecot/
 ADD assets/postfix* /tmp/postfix/

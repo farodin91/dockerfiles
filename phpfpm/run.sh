@@ -38,7 +38,7 @@ if [ ! -e $NGINX_DIR/$NAME_LINK_NGINX ]; then
     fi
 fi
 
-chown 777  $DATA_DIR -R
+chown -R www-data:www-data $DATA_DIR
 
 echo "WRITE CONFIG"
 

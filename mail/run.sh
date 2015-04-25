@@ -24,7 +24,6 @@ fi
 echo "CONFIGURE SUPERVISOR"
 chmod +x /data/postfix.sh
 chmod +x /data/dovecot.sh
-chmod +x /data/sasl2.sh
 
 
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
