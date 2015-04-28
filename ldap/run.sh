@@ -1,3 +1,4 @@
+#!/bin/bash
 
 SLAPD_CONF="/etc/ldap/slapd.conf"
 EDIT_SLAPD_CONF="/data/config/slapd.conf"

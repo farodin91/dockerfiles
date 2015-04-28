@@ -1,3 +1,4 @@
+#!/bin/bash
 
 DOVECOT_MAIN_CONF="/etc/dovecot/dovecot.conf"
 DOVECOT_TMP_MAIN_CONF="/tmp/dovecot/dovecot.conf"

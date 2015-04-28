@@ -7,7 +7,7 @@ MAINTAINER farodin91
 # Install install function.
 RUN \
     apt-get update && \
-    apt-get install -y wget apt-transport-https
+    apt-get install -y wget apt-transport-https rsyslog supervisor
 
 ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
@@ -25,9 +25,9 @@ RUN \
   open-xchange-appsuite-backend open-xchange-appsuite-manifest
     
 
-# Document Viewer
-# RUN \
-#     apt-get install -y open-xchange-documents-ui-viewer open-xchange-documents-ui-static open-xchange-documents-ui
+# OX text
+RUN \
+    apt-get install -y open-xchange-documents-backend open-xchange-documents-ui open-xchange-documents-ui-static
 
 # CalDAV & CardDAV
 # RUN \
@@ -37,6 +37,14 @@ RUN \
 RUN \
     apt-get install -y open-xchange-drive open-xchange-drive-comet open-xchange-dav
 
+RUN \
+	cp -r /opt/open-xchange/etc/ /tmp/
+
+VOLUME /opt/open-xchange/etc/
+VOLUME /var/log/open-xchange/
+
 ADD run.sh /data/run
+ADD assets/open-xchange.sh /data/open-xchange.sh
+ADD assets/supervisord.conf /etc/supervisor/supervisord.conf
 
 CMD [ "bash", "/data/run" ]
