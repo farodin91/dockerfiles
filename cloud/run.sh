@@ -2,7 +2,7 @@
 
 
 echo "CONFIGURE OPEN-XCHANGE"
-if[ ! /opt/open-xchange/etc/configdb.properties] ; then
+if[ ! /opt/open-xchange/etc/configdb.properties ]; then
 	cp -r /tmp/etc/ /opt/open-xchange/etc 
 fi
 
