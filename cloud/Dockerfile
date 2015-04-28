@@ -38,7 +38,8 @@ RUN \
     apt-get install -y open-xchange-drive open-xchange-drive-comet open-xchange-dav
 
 RUN \
-	cp -r /opt/open-xchange/etc/ /tmp/
+	cp -r /opt/open-xchange/etc/ /tmp/ && \
+	rm -r /opt/open-xchange/etc/
 
 VOLUME /opt/open-xchange/etc/
 VOLUME /var/log/open-xchange/
