@@ -8,8 +8,9 @@ ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 # Install install function.
 RUN \
     apt-get install -y wget \
-    wget http://software.open-xchange.com/oxbuildkey.pub \
-    apt-key add - < oxbuildkey.pub \
+
+RUN \
+    wget http://software.open-xchange.com/oxbuildkey.pub && apt-key add - < oxbuildkey.pub \
     apt-get update
 
 RUN \
