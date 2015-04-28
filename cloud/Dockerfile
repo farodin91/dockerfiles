@@ -7,7 +7,7 @@ MAINTAINER farodin91
 # Install install function.
 RUN \
     apt-get update && \
-    apt-get install -y wget
+    apt-get install -y wget apt-transport-https
 
 ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
