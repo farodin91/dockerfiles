@@ -35,7 +35,7 @@ RUN \
 
 # OX Drive
 RUN \
-    apt-get install -y open-xchange-drive open-xchange-drive-comet open-xchange-drive-restricted open-xchange-updater-drive
+    apt-get install -y open-xchange-drive open-xchange-drive-comet open-xchange-dav
 
 ADD run.sh /data/run
 
