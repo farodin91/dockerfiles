@@ -3,14 +3,12 @@ FROM debian:wheezy
 MAINTAINER farodin91
 
 
+ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
 # Install install function.
 RUN \
-cat << EOF >> /etc/apt/sources.list.d/open-xchange.list \
-deb http://software.open-xchange.com/products/appsuite/stable/appsuiteui/DebianWheezy/ / \
-deb http://software.open-xchange.com/products/appsuite/stable/backend/DebianWheezy/ / \
-EOF && \
     apt-get update
+    
 RUN \
     apt-get install open-xchange open-xchange-authentication-imap
 

@@ -1,0 +1,2 @@
+deb http://software.open-xchange.com/products/appsuite/stable/appsuiteui/DebianWheezy/ / 
+deb http://software.open-xchange.com/products/appsuite/stable/backend/DebianWheezy/ / 
