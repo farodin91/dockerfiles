@@ -27,7 +27,7 @@ RUN \
 
 # Document Viewer
 RUN \
-    apt-get install -y readerengine open-xchange-documentconverter open-xchange-documents-ui-viewer open-xchange-documents-ui-static \
+    apt-get install -y open-xchange-documents-ui-viewer open-xchange-documents-ui-static \
     open-xchange-documents-backend open-xchange-documents-ui
 
 # CalDAV & CardDAV
