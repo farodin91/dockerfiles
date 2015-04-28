@@ -12,7 +12,9 @@ RUN \
 ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
 RUN \
-    wget http://software.open-xchange.com/oxbuildkey.pub && apt-key add - < oxbuildkey.pub \
+    wget http://software.open-xchange.com/oxbuildkey.pub && \
+    apt-key add - < oxbuildkey.pub && \
+    apt-get update
 
 RUN \
     apt-get install -y open-xchange open-xchange-authentication-imap
