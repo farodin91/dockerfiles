@@ -6,9 +6,9 @@ MAINTAINER farodin91
 
 # Install install function.
 RUN \
-cat << EOF >> /etc/apt/sources.list.d/open-xchange.list
-deb http://software.open-xchange.com/products/appsuite/stable/appsuiteui/DebianWheezy/ /
-deb http://software.open-xchange.com/products/appsuite/stable/backend/DebianWheezy/ /
+cat << EOF >> /etc/apt/sources.list.d/open-xchange.list \
+deb http://software.open-xchange.com/products/appsuite/stable/appsuiteui/DebianWheezy/ / \
+deb http://software.open-xchange.com/products/appsuite/stable/backend/DebianWheezy/ / \
 EOF && \
     apt-get update
 RUN \
