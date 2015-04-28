@@ -31,8 +31,8 @@ RUN \
     open-xchange-documents-backend open-xchange-documents-ui
 
 # CalDAV & CardDAV
-RUN \
-    apt-get install -y open-xchange-caldav open-xchange-carddav open-xchange-webdav-acl open-xchange-webdav-directory
+# RUN \
+#     apt-get install -y open-xchange-caldav open-xchange-carddav open-xchange-webdav-acl open-xchange-webdav-directory
 
 # OX Drive
 RUN \
