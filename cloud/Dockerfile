@@ -26,8 +26,8 @@ RUN \
     
 
 # OX text
-RUN \
-    apt-get install -y open-xchange-documents-ui open-xchange-documents-ui-static
+# RUN \
+#     apt-get install -y open-xchange-documents-backend open-xchange-documents-ui open-xchange-documents-ui-static
 
 # CalDAV & CardDAV
 # RUN \
