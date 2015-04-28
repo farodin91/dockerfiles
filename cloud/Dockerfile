@@ -3,15 +3,16 @@ FROM debian:wheezy
 MAINTAINER farodin91
 
 
-ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
 # Install install function.
 RUN \
-    apt-get install -y wget \
+    apt-get update \
+    apt-get install -y wget
+
+ADD open-xchange.list /etc/apt/sources.list.d/open-xchange.list
 
 RUN \
     wget http://software.open-xchange.com/oxbuildkey.pub && apt-key add - < oxbuildkey.pub \
-    apt-get update
 
 RUN \
     apt-get install -y open-xchange open-xchange-authentication-imap
