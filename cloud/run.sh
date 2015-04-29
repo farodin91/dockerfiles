@@ -3,8 +3,8 @@
 DB_CONF="/opt/open-xchange/etc/configdb.properties"
 
 echo "CONFIGURE OPEN-XCHANGE"
-if[ ! -e $DB_CONF ]; then
-	cp -r /tmp/etc/ /opt/open-xchange/etc 
+if [ ! -e $DB_CONF ]; then
+	cp -r /tmp/etc/* /opt/open-xchange/etc
 fi
 
 echo "CONFIGURE SUPERVISOR"

@@ -17,7 +17,7 @@ RUN \
     apt-get update
 
 RUN \
-    apt-get install -y open-xchange open-xchange-authentication-imap
+    apt-get install -y open-xchange open-xchange-authentication-imap open-xchange-passwordchange-script
 
 
 RUN \
@@ -26,8 +26,8 @@ RUN \
     
 
 # OX text
-# RUN \
-#     apt-get install -y open-xchange-documents-backend open-xchange-documents-ui open-xchange-documents-ui-static
+RUN \
+    apt-get install -y open-xchange-documents-backend open-xchange-documents-ui open-xchange-documents-ui-static
 
 # CalDAV & CardDAV
 # RUN \
