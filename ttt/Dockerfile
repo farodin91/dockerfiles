@@ -11,7 +11,9 @@ RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz
 
+RUN .
+
 WORKDIR /opt/steamcmd
 
 # This container will be executable
-ENTRYPOINT ["./steamcmd.sh"]
+#ENTRYPOINT ["./steamcmd.sh"]
