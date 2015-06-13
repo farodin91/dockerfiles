@@ -11,6 +11,9 @@ RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz
 
+RUN mkdir -p /root/.steam/sdk32
+RUN ln -s /opt/steamcmd/linux32/steamclient.so /root/.steam/sdk32/steamclient.so
+
 ADD run.sh /run.sh
 
 
