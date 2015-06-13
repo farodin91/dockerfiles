@@ -13,7 +13,7 @@ RUN mkdir -p /opt/steamcmd &&\
 
 ADD run.sh /run.sh
 
-VOLUME ["/opt/ttt/srcds_run"]
+VOLUME ["/opt/ttt"]
 
 WORKDIR /opt/steamcmdCMD 
 
