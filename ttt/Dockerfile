@@ -11,7 +11,7 @@ RUN mkdir -p /opt/steamcmd &&\
     cd /opt/steamcmd &&\
     curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar -vxz
 
-RUN bash ./steamcmd.sh \+login anonymous \+force_install_dir /opt/ttt \+app_update 4020 \+quit
+RUN bash /opt/steamcmd/steamcmd.sh \+login anonymous \+force_install_dir /opt/ttt \+app_update 4020 \+quit
 
 WORKDIR /opt/steamcmdCMD 
 CMD [ "/opt/ttt/srcds_run", "-console -maxplayers 16 -game garrysmod +gamemode terrortown +map gm_construct" ]
