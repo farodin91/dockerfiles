@@ -13,8 +13,7 @@ RUN mkdir -p /opt/steamcmd &&\
 
 ADD run.sh /run.sh
 
-VOLUME ["/opt/ttt"]
 
-WORKDIR /opt/steamcmdCMD 
+VOLUME ["/opt/ttt"]
 
 CMD [ "sh", "/run.sh" ]
