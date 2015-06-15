@@ -4,6 +4,7 @@ ENV NAME_LINK_NGINX php
 
 RUN apt-get update && \
 	apt-get install -y php5-fpm php5-curl php5-gd php5-mcrypt php5-mysql php5-pgsql php5-sqlite php5-ldap && \
+    apt-get install -y php5-curl php5-intl php5-gmp php5-apcu php5-imagick bzip2 cron php5-fileinfo && \
 	mkdir /data && mkdir /data/nginx && mkdir /data/config && mkdir /var/www
 
 ADD index.php /var/www/index.php
